@@ -1,0 +1,20 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>.c{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:var(--ev-r-full);font-size:12px;line-height:16px;font-weight:600}.c i{width:8px;height:8px;border-radius:4px;display:block}</style></head><body>
+<p class="cap">Status pengajuan</p>
+<div class="row">
+<span class="c" style="background:var(--ev-wait-bg);color:var(--ev-wait-ink)"><i style="background:var(--ev-wait-dot)"></i>Menunggu</span>
+<span class="c" style="background:var(--ev-purple-100);color:var(--ev-purple-800)"><i style="background:var(--ev-purple-600)"></i>Di HR</span>
+<span class="c" style="background:var(--ev-ok-bg);color:var(--ev-ok-ink)"><i style="background:var(--ev-ok-dot)"></i>Disetujui</span>
+<span class="c" style="background:var(--ev-no-bg);color:var(--ev-no-ink)"><i style="background:var(--ev-no-dot)"></i>Ditolak</span>
+<span class="c" style="background:var(--ev-cx-bg);color:var(--ev-ink-2)"><i style="background:var(--ev-cx-dot)"></i>Dibatalkan</span>
+</div></body></html>

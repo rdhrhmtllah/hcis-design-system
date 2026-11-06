@@ -1,0 +1,26 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.im{display:flex;gap:var(--ev-sp-10);padding:var(--ev-sp-12) var(--ev-sp-14);border-radius:var(--ev-r-lg);border:1px solid}
+.ib{flex:none;display:flex}.bd{flex:1;min-width:0}.bd b{display:block;font-size:14px;line-height:20px;font-weight:700}.bd p{margin:0;font-size:14px;line-height:20px;font-weight:500}.bd b+p{margin-top:2px}
+.ax{display:flex;flex-wrap:wrap;gap:var(--ev-sp-16);margin-top:var(--ev-sp-6)}
+.ax button{position:relative;background:transparent;padding:0;font-size:14px;line-height:20px;font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:3px}.ax button::after{content:"";position:absolute;left:-4px;right:-4px;top:-12px;bottom:-12px}
+.xx{flex:none;width:44px;height:44px;margin:-12px -14px -12px 0;background:transparent;color:inherit;display:flex;align-items:center;justify-content:center}
+.i{background:var(--ev-purple-50);color:var(--ev-purple-800);border-color:var(--ev-purple-edge)}.o{background:var(--ev-ok-bg);color:var(--ev-ok-ink);border-color:var(--ev-ok-edge)}.w{background:var(--ev-wait-bg);color:var(--ev-wait-ink);border-color:var(--ev-wait-edge)}.e{background:var(--ev-no-bg);color:var(--ev-no-ink);border-color:var(--ev-no-edge)}
+</style></head><body>
+<div class="col" style="max-width:440px;gap:var(--ev-sp-10)">
+<div class="im i"><span class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span><div class="bd"><b>Hari libur nasional tidak dihitung</b><p>Tanggal merah dan akhir pekan dilewati otomatis saat menghitung durasi cuti.</p></div><button class="xx" aria-label="Tutup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+<div class="im o"><span class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div class="bd"><b>Pengajuan terkirim</b><p>Atasanmu sudah diberi tahu. Biasanya selesai dalam 2 hari kerja.</p></div></div>
+<div class="im w"><span class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17h.01"/></svg></span><div class="bd"><b>Sisa cuti tinggal 2 hari</b><p>Pengajuan berikutnya mungkin tidak cukup.</p><div class="ax"><button>Lihat saldo</button></div></div></div>
+<div class="im e"><span class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17h.01"/></svg></span><div class="bd"><b>Sisa cuti tidak cukup untuk 5 hari</b><p>Kurangi jumlah hari, atau ajukan sebagian sebagai jenis cuti lain.</p><div class="ax"><button>Pilih jenis lain</button><button>Kurangi tanggal</button></div></div></div>
+<div class="im e"><span class="ib"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18z"/><path d="M12 10v4M12 17h.01"/></svg></span><div class="bd"><p>Isi alasan minimal 5 karakter.</p></div></div>
+</div></body></html>

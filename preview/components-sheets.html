@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sheets · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>.pv-phone .scrim, .pv-phone .sheet { animation: none; } .bg { padding: 16px; display: grid; gap: 12px; }</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Sheets</span><h1 class="ev-title-l">Bottom sheets, never centred modals</h1>
+<p class="ev-body">Sheets rise from the bottom over a dark scrim, r-3xl top corners, handle bar. Destructive confirmations show the object being affected and a calm "Tidak jadi".</p></header>
+<div class="pv-row" style="gap:16px">
+  <div><div class="ev-label" style="margin-bottom:10px">ConfirmSheet (danger)</div><div class="pv-phone" id="p1"></div></div>
+  <div><div class="ev-label" style="margin-bottom:10px">Picker sheet</div><div class="pv-phone" id="p2"></div></div>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+var bg = '<div class="bg">' + EV.historyRow({ id: 1, day: 12, mon: 'Nov', title: 'Cuti tahunan', meta: '12–13 Nov · 2 hari', status: 'wait' }) + EV.historyRow({ id: 2, day: 2, mon: 'Nov', title: 'Cuti sakit', meta: '2–3 Nov · 2 hari', status: 'hr' }) + '</div>';
+document.getElementById('p1').innerHTML = bg + EV.confirmSheet({ title: 'Batalkan pengajuan ini?', text: 'Saldo 2 hari akan kembali. Atasan kamu akan diberi tahu.', objTitle: 'Cuti tahunan · 12–13 Nov', objSub: 'CT-2611-014 · Menunggu atasan', confirm: 'Ya, batalkan pengajuan' });
+var T = [['calendar-days', 'Cuti tahunan', 'Sisa 8 hari', 1], ['heart', 'Cuti sakit', 'Lampirkan surat dokter'], ['clock', 'Izin setengah hari', 'Pagi atau siang'], ['banknote', 'Cuti tanpa gaji', 'Perlu persetujuan HR']];
+document.getElementById('p2').innerHTML = bg + '<div class="scrim"></div><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ts"><div class="sheet__handle"></div><h2 class="sheet__title" id="ts">Pilih jenis cuti</h2><p class="sheet__text">Saldo dihitung dalam hari kerja.</p><div class="optlist">' +
+  T.map(function (t) { return '<button class="opt' + (t[3] ? ' is-active' : '') + '"><span class="tile">' + EV.icon(t[0], 18, 2.2) + '</span><span class="opt__body"><b>' + t[1] + '</b><small>' + t[2] + '</small></span><span class="radio"></span></button>'; }).join('') + '</div></div>';
+</script>
+</body></html>

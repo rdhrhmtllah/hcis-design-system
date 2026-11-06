@@ -1,0 +1,192 @@
+/* HCIS Mobile — motion & overlay choreography.
+   Diambil 1:1 dari Beranda (source/beranda/Main.dc.html). Jangan ubah durasi,
+   easing, delay, atau titik asal tanpa memperbarui DESIGN.md §Motion.
+
+   Pola umum: setiap overlay punya dua state — "open" (kelas masuk) dan
+   "closing" (kelas keluar). Elemen tetap ter-mount selama animasi keluar,
+   lalu dilepas setelah waktu unmount (lihat EV.overlay di components.js):
+     Menu HCIS ............ 620ms
+     Panel / halaman pop .. 360ms
+     Form pengajuan ....... 360ms
+     Sheet (bawah) ........ 300ms
+     Toast ................ 250ms
+   Semua titik asal reveal = pusat FAB (195px 768px pada kanvas 390x844). */
+
+/* ---------- Keyframes ---------- */
+@keyframes evRevealIn  { from { clip-path: circle(0px at var(--ev-fab-x,195px) var(--ev-fab-y,768px)); } to { clip-path: circle(840px at var(--ev-fab-x,195px) var(--ev-fab-y,768px)); } }
+@keyframes evRevealOut { from { clip-path: circle(840px at var(--ev-fab-x,195px) var(--ev-fab-y,768px)); } to { clip-path: circle(0px at var(--ev-fab-x,195px) var(--ev-fab-y,768px)); } }
+@keyframes evContentIn  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes evContentOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(10px); } }
+@keyframes evItemIn { from { opacity: 0; transform: translateY(10px) scale(.7); } to { opacity: 1; transform: none; } }
+
+@keyframes evFade    { from { opacity: 0; } to { opacity: 1; } }
+@keyframes evFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes evTopIn   { from { transform: translateY(-110%); } to { transform: none; } }
+@keyframes evTopOut  { from { transform: none; } to { transform: translateY(-110%); } }
+@keyframes evUpIn    { from { opacity: 0; transform: translateY(52px); } to { opacity: 1; transform: none; } }
+@keyframes evUpOut   { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(36px); } }
+@keyframes evBotIn   { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes evBotOut  { from { transform: none; } to { transform: translateY(110%); } }
+@keyframes evReveal  { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+@keyframes evNewCard { 0% { box-shadow: 0 0 0 0 rgba(242,201,76,.75); } 100% { box-shadow: 0 0 0 14px rgba(242,201,76,0); } }
+
+@keyframes evScrimIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes evScrimOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes evSheetIn  { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes evSheetOut { from { transform: none; } to { transform: translateY(100%); } }
+@keyframes evSwapA { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes evSwapB { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes evRing { 0%, 8%, 100% { transform: rotate(0); } 2% { transform: rotate(14deg); } 4% { transform: rotate(-12deg); } 6% { transform: rotate(8deg); } }
+
+@keyframes evToastIn  { from { opacity: 0; transform: translateY(30px) scale(.92); } to { opacity: 1; transform: none; } }
+@keyframes evToastOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(16px) scale(.96); } }
+@keyframes evShake { 0%, 100% { translate: 0; } 20% { translate: -6px; } 40% { translate: 5px; } 60% { translate: -3px; } 80% { translate: 2px; } }
+
+@keyframes evLoadCardIn  { from { opacity: 0; transform: scale(.5) rotate(-8deg); } to { opacity: 1; transform: none; } }
+@keyframes evLoadCardOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: scale(.15) rotate(24deg); } }
+
+@keyframes evPgFade  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes evPgIn    { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes evPgSlide { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+@keyframes evNavStretchA { 0%, 100% { transform: scaleX(1); } 35% { transform: scaleX(2.4); } }
+@keyframes evNavStretchB { 0%, 100% { transform: scaleX(1); } 35% { transform: scaleX(2.4); } }
+
+/* ---------- 1. Menu HCIS (FAB) — circular reveal dari FAB ----------
+   Struktur: .ov-menu > .ov-wave (lapis ungu muda) + .ov-main (purple-950) > .ov-content
+   Buka : wave .62s enter → main .62s enter +90ms → konten .3s ease-out +120ms,
+          item grid evItemIn bertahap (delay .34s + 50ms × i).
+   Tutup: konten .2s ease-in → main menyusut .46s exit → wave menyusut .5s exit +70ms.
+          Unmount 620ms. FAB berganti ikon X selama terbuka. */
+.ov-menu { position: absolute; inset: 0; z-index: 20; pointer-events: none; }
+.ov-menu.is-open { pointer-events: auto; }
+.ov-wave { position: absolute; inset: 0; background: linear-gradient(160deg, var(--ev-purple-300), var(--ev-purple-600)); }
+.ov-main { position: absolute; inset: 0; overflow: hidden; background: var(--ev-purple-950); }
+.ov-menu.is-open .ov-wave    { animation: evRevealIn .62s var(--ev-ease-enter) both; }
+.ov-menu.is-open .ov-main    { animation: evRevealIn .62s var(--ev-ease-enter) .09s both; }
+.ov-menu.is-open .ov-content { animation: evContentIn var(--ev-t-base) ease-out .12s both; }
+.ov-menu.is-open .ov-item    { animation: evItemIn var(--ev-t-mid) var(--ev-ease-spring) both; animation-delay: var(--d, .34s); }
+.ov-menu.is-closing .ov-wave    { animation: evRevealOut var(--ev-t-slow) var(--ev-ease-exit) .07s both; }
+.ov-menu.is-closing .ov-main    { animation: evRevealOut .46s var(--ev-ease-exit) both; }
+.ov-menu.is-closing .ov-content { animation: evContentOut var(--ev-t-fast) ease-in both; }
+
+/* ---------- 2. Halaman pop (Notifikasi, Lokasi, Aktivitas, Bantuan) & Form pengajuan ----------
+   Struktur: .ov-page > .fx-bg + .fx-top (header ungu) + .fx-up (blok konten, --d bertahap) + .fx-bot (aksi bawah)
+   Buka : bg fade .3s; header turun dari atas .6s enter; blok naik 52px .6s enter (delay --d);
+          aksi bawah naik .6s enter +100ms.
+   Tutup: header naik .3s exit; blok turun 36px .26s exit (tanpa stagger); aksi turun .3s exit;
+          bg fade .3s +60ms. Unmount 360ms. Escape / tombol Kembali / swipe kanan menutup. */
+.ov-page { position: absolute; inset: 0; z-index: 40; display: flex; flex-direction: column; overflow: hidden; }
+.ov-page .fx-bg { position: absolute; inset: 0; z-index: -1; background: var(--ev-bg); }
+.ov-page.is-open .fx-bg  { animation: evFade var(--ev-t-base) ease both; }
+.ov-page.is-open .fx-top { animation: evTopIn .6s var(--ev-ease-enter) both; }
+.ov-page.is-open .fx-up  { animation: evUpIn .6s var(--ev-ease-enter) both; animation-delay: var(--d, 0s); }
+.ov-page.is-open .fx-bot { animation: evBotIn .6s var(--ev-ease-enter) .1s both; }
+.ov-page.is-closing .fx-bg  { animation: evFadeOut var(--ev-t-base) ease .06s both; }
+.ov-page.is-closing .fx-top { animation: evTopOut var(--ev-t-base) var(--ev-ease-exit) both; }
+.ov-page.is-closing .fx-up  { animation: evUpOut .26s var(--ev-ease-exit) both; animation-delay: 0s !important; }
+.ov-page.is-closing .fx-bot { animation: evBotOut var(--ev-t-base) var(--ev-ease-exit) both; }
+.fx-reveal  { animation: evReveal .45s var(--ev-ease-enter) both; }       /* isi yang muncul setelah pilihan (mis. ringkasan tanggal) */
+.fx-newcard { animation: evNewCard .8s var(--ev-ease-enter) .35s backwards; } /* kartu baru setelah kirim pengajuan */
+
+/* ---------- 3. Sheet bawah (konfirmasi, pilih jenis, detail) ----------
+   Buka : scrim .25s ease-out; sheet naik penuh .5s enter.
+   Tutup: scrim .2s ease-in; sheet turun .28s exit. Unmount 300ms.
+   Isi yang berganti di dalam sheet/panel memakai .pp-a/.pp-b bergantian (.38s spring)
+   agar animasi diputar ulang setiap ganti tab. */
+.scrim.is-open    { animation: evScrimIn var(--ev-t-exit) ease-out both; }
+.scrim.is-closing { animation: evScrimOut var(--ev-t-fast) ease-in both; }
+.sheet.is-open    { animation: evSheetIn var(--ev-t-slow) var(--ev-ease-enter) both; }
+.sheet.is-closing { animation: evSheetOut .28s var(--ev-ease-exit) both; }
+.pp-a { animation: evSwapA .38s var(--ev-ease-spring) both; }
+.pp-b { animation: evSwapB .38s var(--ev-ease-spring) both; }
+.pp-ring { transform-origin: 50% 10%; animation: evRing 4s ease-in-out 1s infinite; } /* lonceng saat ada notifikasi belum dibaca */
+
+/* ---------- 4. Toast ----------
+   Buka : naik 30px + scale .92 → 1, .5s spring. Gagal: + getar .5s mulai 320ms.
+   Tutup: turun 16px + scale .96, .25s exit. Unmount 250ms. Bisa di-swipe. */
+.toast.is-open    { animation: evToastIn var(--ev-t-slow) var(--ev-ease-spring) both; }
+.toast.is-open.toast--no { animation: evToastIn var(--ev-t-slow) var(--ev-ease-spring) both, evShake var(--ev-t-slow) ease-in-out .32s; }
+.toast.is-closing { animation: evToastOut var(--ev-t-exit) var(--ev-ease-exit) both; }
+
+/* ---------- 5. Loading kirim ----------
+   Layar memakai reveal lingkaran dari bawah (50% 92%) dan keluar ke arah header (50% 22%);
+   kartu dokumen muncul spring lalu "terbang" keluar pada 720ms. */
+.ov-load.is-open    { animation: evLoadIn var(--ev-t-page) var(--ev-ease-enter) both; }
+.ov-load.is-closing { animation: evLoadOut var(--ev-t-slow) var(--ev-ease-exit) both; }
+@keyframes evLoadIn  { from { clip-path: circle(0% at 50% 92%); } to { clip-path: circle(150% at 50% 92%); } }
+@keyframes evLoadOut { from { clip-path: circle(150% at 50% 22%); } to { clip-path: circle(0% at 50% 22%); } }
+.ov-load .ld-card { animation: evLoadCardIn var(--ev-t-slow) var(--ev-ease-spring) .1s both, evLoadCardOut var(--ev-t-base) var(--ev-ease-exit) .72s forwards; }
+
+/* ---------- 6. Masuk halaman (tab bawah) ----------
+   Header fade .7s; blok ke-1..6 naik .66s spring, delay 140ms + 80ms × i;
+   isi hero bergeser dari kiri .6s spring (120 / 220 / 340ms).
+   Slider tab bawah meregang (scaleX 2.4 di 35%) setiap pindah tab. */
+.pg-enter > header { animation: evPgFade .7s ease-out both; }
+.pg-enter > .pg-i  { animation: evPgIn .66s var(--ev-ease-spring) both; animation-delay: calc(140ms + var(--i, 0) * 80ms); }
+.pg-hero > *       { animation: evPgSlide .6s var(--ev-ease-spring) both; }
+.pg-hero > :nth-child(1) { animation-delay: .12s; }
+.pg-hero > :nth-child(2) { animation-delay: .22s; }
+.pg-hero > :nth-child(3) { animation-delay: .34s; }
+.nv-st-a { animation: evNavStretchA var(--ev-t-mid) var(--ev-ease-standard); }
+.nv-st-b { animation: evNavStretchB var(--ev-t-mid) var(--ev-ease-standard); }
+
+/* ---------- 7. Gestur ----------
+   Swipe kanan (Kembali) di halaman pop: translateX mengikuti jari, lepas > 1/3 lebar → tutup.
+   Tarik turun di Menu/sheet: scale(1 − 0.03 × progres), lepas > 76px → tutup.
+   Tarik FAB ke atas > 48px (atau cepat > 20px) → buka Menu. Semua memberi getar 10ms.
+   Kembalikan posisi: transform .28s var(--ev-ease-enter). */
+.is-dragging { transition: none !important; }
+.is-settling { transition: transform .28s var(--ev-ease-enter); }
+
+/* ---------- 8. Halaman modul (Cuti Saya) ----------
+   Diambil dari source/cuti-saya. Dipakai oleh module.css. */
+@keyframes cfRow      { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes cutiItemIn { from { opacity: 0; transform: translateY(10px) scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes cutiInX    { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+@keyframes cutiInD    { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+@keyframes cutiInU    { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes cutiPulse  { from { box-shadow: inset 0 0 0 2px var(--ev-purple-600), 0 0 0 0 rgba(242,140,56,.55); } to { box-shadow: inset 0 0 0 2px var(--ev-purple-600), 0 0 0 9px rgba(242,140,56,0); } }
+@keyframes ppBadge    { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes ppBar      { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@keyframes cutiFloat  { 0%, 100% { transform: none; } 50% { transform: translateY(-5px) rotate(1.5deg); } }
+@keyframes cutiTwinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: none; } }
+
+/* Item Menu: muncul bertahap .34s spring (delay diatur via --d) */
+.ov-menu.is-open .cuti-item { animation: cutiItemIn .34s var(--ev-ease-spring) both; animation-delay: var(--d, .34s); }
+/* Masuk halaman modul: judul hero dari kiri, pill turun, blok naik */
+.pg-enter .mh__ttl   { animation: cutiInX .5s var(--ev-ease-spring) .2s both; }
+.pg-enter .mh__pills { animation: cutiInD .5s var(--ev-ease-spring) .26s both; }
+
+/* Gulir halaman modul: top bar mengisi warna, progres emas, judul hero mengecil,
+   chip konteks (tb-a) berganti ke judul kecil (tb-b), ilustrasi mundur. */
+@supports (animation-timeline: scroll()) {
+  .pg { scroll-timeline: --pg block; }
+  .pg .tb__bg   { animation: tbBg linear both; animation-timeline: --pg; animation-range: 0 56px; }
+  .pg .tb__prog { animation: tbProg linear both; animation-timeline: --pg; }
+  .pg .mh__ttl  { animation: tbTitle linear both; animation-timeline: --pg; animation-range: 0 44px; }
+  .pg .tb-a     { animation: tbOut linear both; animation-timeline: --pg; animation-range: 22px 62px; }
+  .pg .tb-b     { animation: tbIn linear both; animation-timeline: --pg; animation-range: 30px 72px; }
+  .pg .mh__art  { animation: tbArt linear both; animation-timeline: --pg; animation-range: 0 150px; }
+  .pg .tb-b     { pointer-events: auto; }
+}
+@keyframes tbBg    { to { opacity: 1; } }
+@keyframes tbProg  { to { transform: scaleX(1); } }
+@keyframes tbTitle { to { opacity: 0; transform: scale(.9); } }
+@keyframes tbOut   { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes tbIn    { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tbArt   { to { opacity: 0; transform: translate(28px, 0) scale(.82); } }
+/* Peramban tanpa scroll-timeline: app.js memberi .is-scrolled pada .pg setelah 56px. */
+.pg.is-scrolled .tb__bg { opacity: 1; }
+.pg.is-scrolled .tb-a { opacity: 0; }
+.pg.is-scrolled .tb-b { opacity: 1; pointer-events: auto; }
+
+/* Prioritas gestur: baris geser (swrow) > gulir menu horizontal > ganti bulan kalender
+   > tab > tab menu. Vertikal: tarik turun sheet. */
+
+/* ---------- Reduced motion: animasi mati, unmount langsung (0ms) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ov-menu *, .ov-page *, .ov-load, .ov-load *, .scrim, .sheet, .toast, .pp-a, .pp-b, .pp-ring,
+  .fx-reveal, .fx-newcard, .pg-enter > *, .pg-hero > *, .nv-st-a, .nv-st-b,
+  .pg *, .cf-r, .pstat, .pp-badge, .offline, .swrow, .mtrack i, .job__bar { animation: none !important; }
+  .is-settling, .swrow__face, .pseg__thumb, .nswipe .nrow { transition: none !important; }
+}

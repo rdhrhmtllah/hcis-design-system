@@ -1,0 +1,22 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.c{position:relative;display:inline-flex;align-items:center;gap:var(--ev-sp-6);height:36px;padding:0 var(--ev-sp-14);border-radius:var(--ev-r-xl);background:var(--ev-white);box-shadow:inset 0 0 0 1px var(--ev-purple-150);color:var(--ev-purple-800);font-size:13px;font-weight:700}
+.c::after{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}.c b{font-weight:700}
+.c.on{background:var(--ev-purple-600);box-shadow:none;color:var(--ev-white)}
+.dk{max-width:400px;padding:var(--ev-sp-12) var(--ev-sp-16) var(--ev-sp-14);border-radius:var(--ev-r-2xl);background:linear-gradient(180deg,var(--ev-purple-900),var(--ev-purple-800))}
+.c.g{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:var(--ev-white)}.c.g.o{background:var(--ev-gold);box-shadow:none;color:var(--ev-gold-ink)}
+</style></head><body>
+<p class="cap">Latar terang</p>
+<div class="row"><a class="c on">Semua <b>7</b></a><a class="c">Disetujui <b>5</b></a><a class="c">Ditolak <b>1</b></a><a class="c">Dibatalkan <b>1</b></a></div>
+<div class="dk"><p class="cap" style="color:var(--ev-purple-150)">Latar ungu tua</p><div class="row" style="margin:0"><a class="c g o">ESS</a><a class="c g">TPM</a><a class="c g">LMS</a><a class="c g">DMS</a></div></div>
+</body></html>

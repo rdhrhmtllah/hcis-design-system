@@ -1,0 +1,43 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-05T03:00:00Z"
+  },
+  "title": "HCIS Mobile",
+  "namespace": "Evo",
+  "libraries": [],
+  "sections": {},
+  "groups": [
+    "Logos"
+  ],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "evo-group-logo.png"
+      ],
+      "files": {
+        "evo-group-logo.png": {
+          "name": "evo-group-logo.png",
+          "blob": "8ebe410c20fc33203065771eb346cca6",
+          "size": 347924,
+          "type": "image/png"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "NOIR",
+    "at": "2026-11-05T05:20:00Z",
+    "via": "Claude",
+    "note": "Token durasi ev-t-enter dan ev-t-page ditambahkan ke Motion"
+  }
+}

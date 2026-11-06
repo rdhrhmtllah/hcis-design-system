@@ -1,0 +1,30 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.card{background:var(--ev-white);border-radius:var(--ev-r-2xl);box-shadow:var(--ev-sh-card);padding:var(--ev-sp-12);max-width:360px;margin-bottom:var(--ev-sp-16)}
+.h{display:flex;align-items:center;margin:6px 4px 0}
+.n{flex:none;width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.done{background:var(--ev-purple-600);color:#fff} .act{background:var(--ev-white);border:3px solid var(--ev-wait-dot);color:var(--ev-ink)} .todo{background:var(--ev-white);border:2px solid var(--ev-purple-150);color:var(--ev-ink-2)}
+.ln{flex:1;height:4px;border-radius:2px;background:var(--ev-purple-100)} .ln.on{background:var(--ev-purple-600)}
+.lb{display:flex;justify-content:space-between;margin:6px 0 0;font-size:12px;font-weight:500;color:var(--ev-ink-2)} .lb b{color:var(--ev-ink);font-weight:700}
+.msg{font-size:13px;font-weight:600;color:var(--ev-ink);margin:0 4px}
+.v{display:flex;gap:12px} .rail{display:flex;flex-direction:column;align-items:center} .rail .seg{flex:1;width:3px;background:var(--ev-purple-100);margin:2px 0} .rail .seg.on{background:var(--ev-purple-600)}
+.it{padding-bottom:14px} .it b{display:block;font-size:15px;font-weight:600} .it span{display:block;font-size:13px;font-weight:500;color:var(--ev-ink-2)}
+</style></head><body>
+<p class="cap">Mendatar · menunggu atasan</p>
+<div class="card"><p class="msg">Menunggu atasan langsung</p>
+<div class="h"><span class="n done">✓</span><span class="ln on"></span><span class="n act">2</span><span class="ln"></span><span class="n todo">3</span><span class="ln"></span><span class="n todo">4</span></div>
+<div class="lb"><span>Terkirim</span><b>Atasan</b><span>HR</span><span>Selesai</span></div></div>
+<p class="cap">Tegak · Detail</p>
+<div class="card"><div class="v"><div class="rail"><span class="n done">✓</span><span class="seg on"></span><span class="n act">2</span><span class="seg"></span><span class="n todo">3</span><span class="seg"></span><span class="n todo">4</span></div>
+<div><div class="it"><b>Pengajuan dikirim</b><span>Kamu mengirim pengajuan</span></div><div class="it"><b>Persetujuan Atasan</b><span>Menunggu keputusan · maks. 2 hari kerja</span></div><div class="it"><b>Verifikasi HR</b><span>Belum diproses</span></div><div class="it"><b>Selesai</b><span>Setelah semua tahap disetujui</span></div></div></div></div>
+</body></html>

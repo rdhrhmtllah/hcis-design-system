@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surface — Cuti Saya · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .pv-phone { width: 390px; height: 844px; }
+  .scroll { position: absolute; inset: 0; overflow-y: auto; padding-bottom: 100px; scrollbar-width: none; }
+  .notes { max-width: 380px; display: grid; gap: 10px; }
+  .notes li { margin-bottom: 6px; }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Applied surface</span><h1 class="ev-title-l">Cuti Saya — home</h1>
+<p class="ev-body">The system assembled: purple header with summary chips, overlapping BalanceCard, shortcuts, active requests with route, recent decisions and the floating nav. Full interactive flow lives in the UI kit.</p></header>
+<div class="pv-row" style="gap:24px">
+  <div class="pv-phone"><div class="scroll" id="s"></div><div id="nav"></div></div>
+  <section class="pv-panel notes"><span class="ev-label">What to notice</span>
+    <ol class="ev-body-sm" style="margin:0;padding-left:18px">
+      <li>Purple is structure (header, primary key, active nav); gold appears only as small fills — the pill, the button tile, the nav dot.</li>
+      <li>One big number answers the first question: how many days are left.</li>
+      <li>Every status is a word plus a dot. "Di HR" shares the waiting orange.</li>
+      <li>Cards sit on lavender with purple-tinted shadows; no grey borders.</li>
+      <li>Copy is short, Indonesian, "kamu" voice, verb-first actions.</li>
+    </ol>
+    <a class="link-btn" href="../ui_kits/app/index.html" style="text-decoration:none">Buka UI kit interaktif <span data-i></span></a>
+  </section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+var I = EV.icon;
+document.querySelector('[data-i]').outerHTML = I('arrow-right', 16, 2.6);
+document.getElementById('s').innerHTML =
+  EV.pageHeader({ title: 'Cuti Saya', eyebrow: 'Halo, Dimas', logo: '../assets/evo-group-logo.png', pill: { label: 'Panduan' }, actions: [{ icon: 'bell', label: 'Notifikasi', badge: 3 }],
+    chips: EV.summaryChips([{ key: 'all', label: 'Semua', count: 2 }, { key: 'wait', label: 'Menunggu', count: 1, dot: 'wait' }, { key: 'hr', label: 'Di HR', count: 1, dot: 'hr' }], 'all') }) +
+  EV.balanceCard({ remaining: 8, total: 12, used: 2, pending: 2, year: 2026, cta: EV.button({ label: 'Ajukan cuti', icon: 'plus', arrow: true }) }) +
+  '<div class="section" style="padding-top:var(--ev-sp-16)">' + EV.shortcuts([{ icon: 'calendar-check', label: 'Saldo & aturan', tone: 'gold' }, { icon: 'history', label: 'Riwayat' }, { icon: 'help', label: 'Bantuan' }]) + '</div>' +
+  '<section class="section"><div class="section__head"><h2 class="section__title">Pengajuan aktif</h2><span class="ev-caption">2 pengajuan</span></div><div class="stack">' +
+  EV.requestCard({ id: 'a', type: 'Cuti tahunan', icon: 'calendar-days', code: 'CT-2611-014', status: 'wait', range: '12–13 November', meta: '2 hari kerja · diajukan 10 Nov',
+    steps: [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Menunggu', state: 'active' }, { label: 'HR', state: 'todo' }] }) +
+  EV.requestCard({ id: 'b', type: 'Cuti sakit', icon: 'heart', code: 'CS-2611-006', status: 'hr', range: '2–3 November', meta: '2 hari kerja · surat dokter terlampir',
+    steps: [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Setuju', state: 'done' }, { label: 'HR', sub: 'Menunggu', state: 'active' }] }) + '</div></section>' +
+  '<section class="section"><div class="section__head"><h2 class="section__title">Terakhir diputuskan</h2><button class="link-btn">Lihat semua ' + I('chevron-right', 16, 2.6) + '</button></div>' +
+  EV.historyRow({ id: 1, day: 21, mon: 'Okt', title: 'Cuti tahunan', meta: '21–22 Okt · 2 hari', status: 'ok' }) +
+  EV.historyRow({ id: 2, day: 6, mon: 'Okt', title: 'Izin setengah hari', meta: '6 Okt · 0,5 hari', status: 'no' }) + '</section>';
+document.getElementById('nav').innerHTML = EV.bottomNav('home');
+</script>
+</body></html>

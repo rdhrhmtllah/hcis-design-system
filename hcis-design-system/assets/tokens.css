@@ -1,0 +1,118 @@
+/* Dibangun dari tokens.json (Evo HCIS Mobile v1). Jangan diedit manual. */
+:root {
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  /* color */
+  --ev-purple-900: #2d1778;
+  --ev-purple-800: #3b22a0;
+  --ev-purple-700: #4b2db5;
+  --ev-purple-600: #5b3bd8;
+  --ev-purple-400: #8b6cf0;
+  --ev-purple-300: #a78bfa;
+  --ev-purple-150: #d9d0f5;
+  --ev-purple-100: #e4ddfb;
+  --ev-purple-50: #f1eefc;
+  --ev-gold: #f7c948;
+  --ev-gold-edge: #d49a12;
+  --ev-gold-ink: #3a2a00;
+  --ev-ink: #1a1535;
+  --ev-ink-2: #5a5578;
+  --ev-ink-3: #8a84a8;
+  --ev-bg: #f4f2fc;
+  --ev-white: #ffffff;
+  --ev-ok-bg: #ddf5e4;
+  --ev-ok-ink: #14532d;
+  --ev-ok-dot: #2e9e5b;
+  --ev-wait-bg: #ffe9d6;
+  --ev-wait-ink: #7a3200;
+  --ev-wait-dot: #f57c2a;
+  --ev-no-bg: #ffe0ea;
+  --ev-no-ink: #9b1c48;
+  --ev-no-dot: #cd3e6a;
+  --ev-cx-bg: #eceaf3;
+  --ev-cx-dot: #9a94b8;
+  --ev-purple-200: #e8e2fc;
+  --ev-purple-accent: #6d4ae0;
+  --ev-purple-edge: #c9bfef;
+  --ev-field-bg: #fbfaff;
+  --ev-tint: #f7f5fe;
+  --ev-dash: #b7a7ee;
+  --ev-ok-edge: #a9ddba;
+  --ev-wait-edge: #f8cba6;
+  --ev-no-edge: #f2b9cb;
+  --ev-info-bg: #d6e8ff;
+  --ev-info-edge: #afcbf2;
+  --ev-info-ink: #1b4a96;
+  --ev-purple-950: #241269;
+  --ev-purple-500: #6d4deb;
+  --ev-no-deep: #8f1840;
+  --ev-no-soft: #ff7a9e;
+  --ev-no-ring: #ffc9d9;
+  --ev-track: #dcd5f3;
+  --ev-path-orange: #ff9f55;
+  --ev-path-rose: #ff6b94;
+  --ev-path-rose-soft: #ff8fae;
+  /* spacing */
+  --ev-sp-2: 2px;
+  --ev-sp-4: 4px;
+  --ev-sp-6: 6px;
+  --ev-sp-8: 8px;
+  --ev-sp-10: 10px;
+  --ev-sp-12: 12px;
+  --ev-sp-14: 14px;
+  --ev-sp-16: 16px;
+  --ev-sp-20: 20px;
+  --ev-sp-24: 24px;
+  --ev-sp-32: 32px;
+  --ev-sp-48: 48px;
+  /* radius */
+  --ev-r-hair: 2px;
+  --ev-r-xs: 4px;
+  --ev-r-sm: 8px;
+  --ev-r-md: 12px;
+  --ev-r-lg: 16px;
+  --ev-r-xl: 20px;
+  --ev-r-2xl: 24px;
+  --ev-r-3xl: 28px;
+  --ev-r-full: 999px;
+  /* shadow */
+  --ev-sh-card: 0 12px 26px -16px rgba(45,23,120,0.4), 0 2px 5px rgba(45,23,120,0.06);
+  --ev-sh-row: 0 8px 16px -12px rgba(45,23,120,0.35);
+  --ev-sh-btn: 0 4px 0 #3b22a0, inset 0 1px 0 rgba(255,255,255,0.28);
+  --ev-sh-pop: 0 12px 20px -10px rgba(45,23,120,0.5);
+  --ev-sh-sheet: 0 -18px 40px -12px rgba(26,21,53,0.45);
+  /* breakpoint */
+  --ev-bp-tablet: 600px;
+  --ev-bp-desktop: 1024px;
+  --ev-bp-wide: 1440px;
+  /* size */
+  --ev-touch: 44px;
+  --ev-w-phone: 390px;
+  --ev-w-rail: 72px;
+  --ev-w-sidebar: 248px;
+  --ev-w-content: 1120px;
+  --ev-w-form: 560px;
+  --ev-w-dialog-s: 400px;
+  --ev-w-dialog-m: 560px;
+  --ev-w-panel: 420px;
+  /* zIndex */
+  --ev-z-sticky: 10;
+  --ev-z-nav: 20;
+  --ev-z-popover: 40;
+  --ev-z-sheet: 50;
+  --ev-z-detail: 51;
+  --ev-z-toast: 70;
+  --ev-z-hint: 80;
+  /* motion */
+  --ev-ease-enter: cubic-bezier(.2,.9,.25,1);
+  --ev-ease-spring: cubic-bezier(.3,1.5,.5,1);
+  --ev-ease-exit: cubic-bezier(.5,0,.9,.4);
+  --ev-ease-standard: cubic-bezier(.45,0,.25,1);
+  --ev-t-fast: 0.2s;
+  --ev-t-exit: 0.25s;
+  --ev-t-base: 0.3s;
+  --ev-t-mid: 0.4s;
+  --ev-t-enter: 0.45s;
+  --ev-t-slow: 0.5s;
+  --ev-t-page: 0.6s;
+}

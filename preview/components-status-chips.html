@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Status &amp; chips · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>
+  #sc { gap: 10px; }
+  #sum .sumchips { margin-top: 0; }
+  #st { gap: 20px; }
+  #st > div + div { padding-top: 16px; border-top: 1px dashed var(--ev-purple-150); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Chips &amp; stepper</span><h1 class="ev-title-l">Five status words, always with a dot</h1>
+<p class="ev-body">Menunggu · Di HR · Disetujui · Ditolak · Dibatalkan. Colour is never the only signal — the word is always visible.</p></header>
+<div class="pv-grid">
+  <section class="pv-panel"><span class="ev-label">StatusChip</span><div class="pv-row" id="sc"></div></section>
+  <section class="pv-panel" style="background:var(--ev-header-gradient)"><span class="ev-label" style="color:rgba(255,255,255,.72)">SummaryChip — on purple header</span><div id="sum"></div></section>
+  <section class="pv-panel"><span class="ev-label">FilterChip — on white</span><div class="fchips" id="fc"></div></section>
+  <section class="pv-panel"><span class="ev-label">ApprovalStepper</span><div class="pv-grid" id="st" style="max-width:360px"></div></section>
+  <section class="pv-panel"><span class="ev-label">Segmented tabs</span><div class="seg" style="max-width:340px"><button class="is-active">Semua</button><button>Belum dibaca · 3</button></div></section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+document.getElementById('sc').innerHTML = ['wait','hr','ok','no','cx'].map(EV.statusChip).join('');
+document.getElementById('sum').innerHTML = EV.summaryChips([{ key: 'all', label: 'Semua', count: 6 }, { key: 'wait', label: 'Menunggu', count: 2, dot: 'wait' }, { key: 'ok', label: 'Disetujui', count: 3, dot: 'ok' }, { key: 'no', label: 'Ditolak', count: 1, dot: 'no' }], 'all');
+var W = { all: 'Semua', wait: 'Menunggu', ok: 'Disetujui', no: 'Ditolak', cx: 'Dibatalkan' }, N = { all: 9, wait: 2, ok: 4, no: 1, cx: 2 };
+document.getElementById('fc').innerHTML = Object.keys(W).map(function (k) { return '<button class="fchip' + (k === 'ok' ? ' is-active' : '') + '">' + (k !== 'all' ? '<span class="dot dot--' + k + '"></span>' : '') + W[k] + ' <b>' + N[k] + '</b></button>'; }).join('');
+var S = [
+  ['Menunggu atasan', [{ label: 'Diajukan', sub: '10 Nov', state: 'done' }, { label: 'Atasan', sub: 'Menunggu', state: 'active' }, { label: 'HR', state: 'todo' }]],
+  ['Di HR', [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Setuju', state: 'done' }, { label: 'HR', sub: 'Menunggu', state: 'active' }]],
+  ['Ditolak atasan', [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Ditolak', state: 'rejected' }, { label: 'HR', state: 'todo' }]]];
+document.getElementById('st').innerHTML = S.map(function (s) { return '<div><div class="ev-caption" style="margin-bottom:8px">' + s[0] + '</div>' + EV.stepper(s[1]) + '</div>'; }).join('');
+</script>
+</body></html>

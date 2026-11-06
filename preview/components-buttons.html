@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buttons · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>.col { width: 340px; display: grid; gap: 14px; } .btn:focus-visible, .link-btn:focus-visible { outline: 2px solid var(--ev-focus); outline-offset: 3px; }</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Button</span><h1 class="ev-title-l">3D keys, gold icon tile, one primary per screen</h1>
+<p class="ev-body">56px tall, r-xl, 4px purple edge that collapses on press. Labels are verbs: "Kirim pengajuan", never "OK".</p></header>
+<div class="pv-row" style="gap:16px">
+  <section class="pv-panel"><span class="ev-label">Variants</span><div class="col" id="v"></div></section>
+  <section class="pv-panel"><span class="ev-label">States</span><div class="col" id="s"></div></section>
+  <section class="pv-panel"><span class="ev-label">Small · link · header controls</span><div class="col" id="m"></div>
+    <div style="margin-top:14px;background:var(--ev-header-gradient);border-radius:var(--ev-r-2xl);padding:14px;display:flex;gap:10px;align-items:center" id="h"></div></section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+var B = EV.button;
+document.getElementById('v').innerHTML = B({ label: 'Ajukan cuti', icon: 'plus', arrow: true }) + B({ label: 'Kirim pengajuan', icon: 'upload' }) + B({ label: 'Lihat pengajuan saya' }) + B({ label: 'Ajukan lagi', variant: 'secondary' }) + B({ label: 'Ya, batalkan pengajuan', variant: 'danger' });
+document.getElementById('s').innerHTML = '<div class="ev-caption">Default</div>' + B({ label: 'Kirim pengajuan', icon: 'upload', arrow: true }) +
+  '<div class="ev-caption">Pressed</div>' + B({ label: 'Kirim pengajuan', icon: 'upload', arrow: true }).replace('class="btn', 'class="btn is-pressed') +
+  '<div class="ev-caption">Loading</div>' + B({ label: 'Mengirim', icon: 'upload' }).replace('class="btn', 'class="btn is-loading').replace('<button', '<button aria-busy="true"') +
+  '<div class="ev-caption">Disabled — pilih tanggal dulu</div>' + B({ label: 'Kirim pengajuan', icon: 'upload', arrow: true, disabled: true });
+document.getElementById('m').innerHTML = '<div class="pv-row">' + B({ label: 'Ingatkan atasan', small: true }).replace('class="btn', 'style="width:auto" class="btn') + B({ label: 'Batalkan', small: true, variant: 'secondary' }).replace('class="btn', 'style="width:auto" class="btn') + '</div>' +
+  '<div><button class="link-btn">Lihat semua ' + evIcon('chevron-right', { size: 16, stroke: 2.6 }) + '</button></div>';
+document.getElementById('h').innerHTML = '<button class="glass" aria-label="Kembali">' + evIcon('arrow-left', { size: 18, stroke: 2.4 }) + '</button><span style="flex:1"></span>' +
+  '<button class="gold-pill"><span class="gold-pill__dot">' + evIcon('play', { size: 12, stroke: 2.6 }) + '</span>Panduan</button>' +
+  '<button class="glass" aria-label="Notifikasi">' + evIcon('bell', { size: 18, stroke: 2.2 }) + '<span class="glass__badge">3</span></button>';
+</script>
+</body></html>

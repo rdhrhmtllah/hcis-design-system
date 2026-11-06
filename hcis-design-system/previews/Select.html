@@ -1,0 +1,30 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.fld{display:flex;flex-direction:column;gap:var(--ev-sp-6);width:100%;max-width:300px}
+.fld label{font-size:12px;font-weight:600;color:var(--ev-ink)}
+.in{display:flex;align-items:center;gap:var(--ev-sp-8);min-height:48px;padding:0 var(--ev-sp-14);border-radius:var(--ev-r-lg);background:var(--ev-field-bg);border:1.5px solid var(--ev-purple-150);font-size:14px;font-weight:500;color:var(--ev-ink)}
+.in .ph{color:var(--ev-ink-2)}.in svg{color:var(--ev-ink-2);flex:none}
+.in.hv{border-color:var(--ev-purple-300)}.in.fc{border-color:var(--ev-purple-600);box-shadow:0 0 0 3px var(--ev-purple-100)}
+.in.er{border-color:var(--ev-no-dot)}.in.dz{background:var(--ev-purple-50);color:var(--ev-ink-2);border-style:dashed}
+.hp{font-size:12px;font-weight:500;color:var(--ev-ink-2)}.hp.e{color:var(--ev-no-ink);display:flex;gap:var(--ev-sp-4);align-items:center}
+.st{font-size:11px;font-weight:600;color:var(--ev-ink-2)}
+
+.lst{background:var(--ev-white);border-radius:var(--ev-r-lg);box-shadow:var(--ev-sh-pop);padding:var(--ev-sp-6)}
+.lst a{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 var(--ev-sp-10);border-radius:var(--ev-r-md);font-size:14px;font-weight:500;color:var(--ev-ink)}
+.lst a:first-child{font-weight:700;color:var(--ev-purple-800)}.lst .h{background:var(--ev-purple-50)}.lst span{color:var(--ev-purple-600);display:flex}
+</style></head><body>
+<div class="row" style="gap:var(--ev-sp-24)">
+<div class="fld"><label>Jenis cuti</label><div class="in fc"><span style="flex:1">Cuti tahunan</span><svg style="transform:rotate(180deg)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div>
+<div class="lst"><a>Cuti tahunan<span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></a><a class="h">Cuti sakit</a><a>Cuti melahirkan</a><a>Cuti besar</a></div></div>
+<div class="fld"><label>Jenis cuti</label><div class="in"><span style="flex:1">Cuti tahunan</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div><span class="st">Tertutup</span></div>
+</div></body></html>

@@ -1,0 +1,21 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>body{background:var(--ev-purple-900)} .cap{color:var(--ev-purple-150)}
+.p{position:relative;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px 0 9px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:600;color:#fff}
+.p::after{content:"";position:absolute;left:-4px;right:-4px;top:-8px;bottom:-8px}
+.p i{width:8px;height:8px;border-radius:4px;display:block}
+.on{background:#fff;border-color:#fff;color:var(--ev-purple-800)}</style></head><body>
+<p class="cap">Normal</p><div class="row"><button class="p"><i style="background:var(--ev-wait-dot)"></i>3 menunggu</button><button class="p"><i style="background:var(--ev-purple-300)"></i>1 di HR</button></div>
+<p class="cap">Aktif (memfilter)</p><div class="row"><button class="p on" aria-pressed="true"><i style="background:var(--ev-wait-dot)"></i>3 menunggu</button><button class="p"><i style="background:var(--ev-purple-300)"></i>1 di HR</button></div>
+<p class="cap">Lebih dari 3 status</p><div class="row"><button class="p"><i style="background:var(--ev-wait-dot)"></i>3 menunggu</button><button class="p"><i style="background:var(--ev-purple-300)"></i>1 di HR</button><button class="p"><i style="background:#fff"></i>+2</button></div>
+<p class="cap">Kosong</p><div class="row"><button class="p"><i style="background:var(--ev-purple-400)"></i>Tidak ada pengajuan aktif</button></div>
+</body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.ch{display:inline-flex;align-items:center;gap:var(--ev-sp-6);height:26px;padding:0 var(--ev-sp-10);border-radius:var(--ev-r-full);font-size:12px;font-weight:600;white-space:nowrap}.ch::before{content:"";width:7px;height:7px;border-radius:4px;background:currentColor}
+.w{background:var(--ev-wait-bg);color:var(--ev-wait-ink)}.w::before{background:var(--ev-wait-dot)}.o{background:var(--ev-ok-bg);color:var(--ev-ok-ink)}.o::before{background:var(--ev-ok-dot)}.n{background:var(--ev-no-bg);color:var(--ev-no-ink)}.n::before{background:var(--ev-no-dot)}.h{background:var(--ev-purple-100);color:var(--ev-purple-800)}.h::before{background:var(--ev-purple-600)}
+
+.tb{background:var(--ev-white);border-radius:var(--ev-r-xl);box-shadow:var(--ev-sh-card);overflow:hidden;max-width:860px}
+table{width:100%;border-collapse:collapse;font-size:14px;font-weight:500}
+th{height:44px;padding:0 var(--ev-sp-16);background:var(--ev-purple-50);text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2)}
+th span{vertical-align:middle;margin-left:var(--ev-sp-4)}
+td{height:56px;padding:0 var(--ev-sp-16);border-top:1px solid var(--ev-purple-100)}td b{font-weight:600}.r{text-align:right}
+.sel td{background:var(--ev-purple-50)}.sel td:first-child{box-shadow:inset 3px 0 0 var(--ev-purple-600)}
+.ac{width:44px;height:44px;border-radius:var(--ev-r-md);background:transparent;color:var(--ev-ink-2);display:inline-flex;align-items:center;justify-content:center}
+</style></head><body>
+<div class="tb"><table>
+<thead><tr><th>Jenis</th><th>Tanggal</th><th class="r">Durasi <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M4 16l4 4 4-4M16 20V4M12 8l4-4 4 4"/></svg></span></th><th>Status</th><th>Disetujui oleh</th><th></th></tr></thead>
+<tbody>
+<tr class="sel"><td><b>Cuti tahunan</b></td><td>16 sampai 19 Nov</td><td class="r">4 hari</td><td><span class="ch w">Menunggu</span></td><td>Andi Pratama</td><td class="r"><button class="ac"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></button></td></tr>
+<tr><td><b>Cuti sakit</b></td><td>2 sampai 3 Nov</td><td class="r">2 hari</td><td><span class="ch o">Disetujui</span></td><td>Andi Pratama</td><td class="r"><button class="ac"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></button></td></tr>
+<tr><td><b>Cuti tahunan</b></td><td>12 sampai 14 Okt</td><td class="r">3 hari</td><td><span class="ch n">Ditolak</span></td><td>Sari Wulandari</td><td class="r"><button class="ac"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></button></td></tr>
+</tbody></table></div></body></html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navigation · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>.navbox { position: relative; width: 360px; height: 120px; background: var(--ev-bg); border-radius: var(--ev-r-2xl); overflow: hidden; } .ph { padding-bottom: 20px; }</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Navigation</span><h1 class="ev-title-l">Purple header on top, floating nav below</h1>
+<p class="ev-body">PageHeader carries title and the one gold pill. BottomNav floats 12px from the edges with a raised gradient FAB; active item gets a gold dot.</p></header>
+<div class="pv-row" style="gap:16px">
+  <section class="pv-panel"><span class="ev-label">PageHeader — home (logo, pill, badge, summary)</span><div style="width:360px;border-radius:var(--ev-r-2xl);overflow:hidden" id="h1"></div></section>
+  <section class="pv-panel"><span class="ev-label">PageHeader — compact (back)</span><div style="width:360px;border-radius:var(--ev-r-2xl);overflow:hidden" id="h2"></div>
+    <span class="ev-label" style="display:block;margin:20px 0 12px">BottomNav</span><div class="navbox" id="bn"></div>
+    <span class="ev-label" style="display:block;margin:20px 0 12px">Menu (FAB) grid</span><div class="menu-grid" style="width:340px" id="mg"></div></section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+document.getElementById('h1').innerHTML = EV.pageHeader({ title: 'Cuti Saya', eyebrow: 'Halo, Dimas', logo: '../assets/evo-group-logo.png', pill: { label: 'Panduan' }, actions: [{ icon: 'bell', label: 'Notifikasi', badge: 3 }],
+  chips: EV.summaryChips([{ key: 'all', label: 'Semua', count: 4 }, { key: 'wait', label: 'Menunggu', count: 2, dot: 'wait' }, { key: 'ok', label: 'Disetujui', count: 2, dot: 'ok' }], 'all') });
+document.getElementById('h2').innerHTML = EV.pageHeader({ title: 'Ajukan cuti', sub: 'Pilih jenis dan tanggal, lalu kirim ke atasan.', back: {}, compact: true });
+document.getElementById('bn').innerHTML = EV.bottomNav('home');
+var M = [['calendar-days', 'Cuti', 'gold'], ['clock', 'Absensi'], ['wallet', 'Slip gaji'], ['banknote', 'Reimburse'], ['graduation', 'Pelatihan'], ['document', 'Dokumen'], ['activity', 'Kinerja'], ['help', 'Bantuan', 'info']];
+document.getElementById('mg').innerHTML = M.map(function (m) { return '<button class="menu-item"><span class="tile' + (m[2] ? ' tile--' + m[2] : '') + '">' + EV.icon(m[0], 22, 2.2) + '</span>' + m[1] + '</button>'; }).join('');
+</script>
+</body></html>

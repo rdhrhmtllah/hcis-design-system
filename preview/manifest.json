@@ -1,0 +1,24 @@
+{
+  "designSystem": "user:hcis-mobile-design-system",
+  "name": "Evo HCIS Mobile",
+  "index": "preview/index.html",
+  "cards": [
+    { "path": "preview/colors-primary.html", "group": "colors", "title": "Colors — brand", "summary": "Purple ramp, gold accent, ink and surfaces, header gradient" },
+    { "path": "preview/colors-status.html", "group": "colors", "title": "Colors — status", "summary": "Five status families with chips and the orange-vs-rose error rule" },
+    { "path": "preview/typography-specimens.html", "group": "typography", "title": "Typography", "summary": "12 type styles, Bricolage Grotesque + Inter, tabular numbers" },
+    { "path": "preview/spacing-tokens.html", "group": "spacing", "title": "Spacing", "summary": "Spacing scale, page anatomy, touch target, widths and breakpoints" },
+    { "path": "preview/radius-shadows.html", "group": "shape", "title": "Shape & elevation", "summary": "Radii, purple-tinted shadows, 3D key edge, icon tile shape" },
+    { "path": "preview/motion-tokens.html", "group": "motion", "title": "Motion", "summary": "Easings and durations" },
+    { "path": "preview/icons.html", "group": "iconography", "title": "Icons", "summary": "Lucide only: 2,029 icons, searchable" },
+    { "path": "preview/brand-logo.html", "group": "brand", "title": "Brand", "summary": "Logo usage on white and purple" },
+    { "path": "preview/components-buttons.html", "group": "components", "title": "Buttons", "summary": "Variants, states, link and header controls" },
+    { "path": "preview/components-status-chips.html", "group": "components", "title": "Chips & stepper", "summary": "StatusChip, SummaryChip, FilterChip, ApprovalStepper, segmented tabs" },
+    { "path": "preview/components-cards.html", "group": "components", "title": "Cards & rows", "summary": "BalanceCard, ShortcutTile, RequestCard, HistoryRow, InfoList" },
+    { "path": "preview/components-inputs.html", "group": "components", "title": "Inputs", "summary": "Select, TextField, focus/error, DateRangePicker, option list" },
+    { "path": "preview/components-navigation.html", "group": "components", "title": "Navigation", "summary": "PageHeader, BottomNav, FAB menu grid" },
+    { "path": "preview/components-feedback.html", "group": "components", "title": "Feedback", "summary": "InlineMessage, Toast, EmptyState, Skeleton, sending and success screens" },
+    { "path": "preview/components-sheets.html", "group": "components", "title": "Sheets", "summary": "ConfirmSheet and picker sheet" },
+    { "path": "preview/surface-cuti-saya.html", "group": "surface", "title": "Surface — Cuti Saya", "summary": "Home screen assembled from the system" }
+  ],
+  "uiKit": "ui_kits/app/index.html"
+}

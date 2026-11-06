@@ -1,0 +1,20 @@
+/* Shared chrome for preview cards. Tokens come from ../colors_and_type.css. */
+html, body { margin: 0; }
+body.ev-root { padding: 24px; min-height: 100vh; box-sizing: border-box; }
+.pv-head { margin-bottom: 20px; }
+.pv-head h1 { margin: 2px 0 4px; }
+.pv-head p { margin: 0; color: var(--ev-ink-2); max-width: 640px; }
+.pv-grid { display: grid; gap: 16px; }
+.pv-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+.pv-panel { background: var(--ev-white); border-radius: var(--ev-r-2xl); box-shadow: var(--ev-sh-card); padding: 20px; }
+.pv-panel > .ev-label { display: block; margin-bottom: 12px; }
+.pv-swatch { width: 132px; border-radius: var(--ev-r-lg); overflow: hidden; background: var(--ev-white); box-shadow: var(--ev-sh-row); }
+.pv-swatch i { display: block; height: 72px; }
+.pv-swatch div { padding: 8px 10px 10px; }
+.pv-swatch b { display: block; font: 600 var(--ev-fs-caption)/1.3 var(--font-body); }
+.pv-swatch code { font: 500 11px/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--ev-ink-2); }
+.pv-note { font: 500 var(--ev-fs-caption)/var(--ev-lh-caption) var(--font-body); color: var(--ev-ink-2); margin-top: 8px; }
+.pv-phone { position: relative; width: 360px; height: 560px; border-radius: 32px; overflow: hidden; background: var(--ev-bg); box-shadow: var(--ev-sh-card); flex: none; }
+.pv-do, .pv-dont { font: 700 var(--ev-fs-caption)/1 var(--font-body); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.pv-do { color: var(--ev-ok-ink); } .pv-dont { color: var(--ev-no-ink); }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }

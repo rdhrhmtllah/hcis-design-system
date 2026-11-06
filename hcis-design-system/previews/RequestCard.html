@@ -1,0 +1,37 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.wrap{position:relative;max-width:360px;margin-bottom:var(--ev-sp-16);border-radius:var(--ev-r-2xl);overflow:hidden}
+.card{position:relative;background:var(--ev-white);border-radius:var(--ev-r-2xl);box-shadow:var(--ev-sh-card);padding:var(--ev-sp-14) var(--ev-sp-14) 0;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center}
+.code{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--ev-ink-2)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:12px;font-size:12px;font-weight:600;background:var(--ev-wait-bg);color:var(--ev-wait-ink)} .chip i{width:8px;height:8px;border-radius:4px;background:var(--ev-wait-dot)}
+.mid{display:flex;align-items:center;gap:var(--ev-sp-12);margin:var(--ev-sp-10) 0 var(--ev-sp-12)}
+.cal{flex:none;width:48px;border-radius:var(--ev-r-lg);border:1px solid var(--ev-purple-150);overflow:hidden;text-align:center;background:var(--ev-white)}
+.cal b{display:block;background:var(--ev-purple-800);color:#fff;font-size:11px;line-height:16px;font-weight:700;letter-spacing:.06em} .cal span{display:block;font-family:var(--font-display);font-size:22px;line-height:30px;font-weight:800;color:var(--ev-purple-800)}
+.tt{flex:1} .tt h3{margin:0;font-family:var(--font-display);font-size:18px;line-height:1.2;font-weight:700;letter-spacing:-.2px} .tt p{margin:2px 0 0;font-size:14px;font-weight:500;color:var(--ev-ink-2)}
+.foot{margin:0 calc(-1*var(--ev-sp-14));padding:var(--ev-sp-12) var(--ev-sp-14) var(--ev-sp-14);background:var(--ev-purple-50)}
+.foot p{margin:0 0 8px;font-size:13px;font-weight:600}
+.tr{display:flex;align-items:center} .n{width:18px;height:18px;border-radius:9px;display:block} .d{background:var(--ev-purple-600)} .a{background:#fff;border:3px solid var(--ev-wait-dot)} .t{background:#fff;border:2px solid var(--ev-purple-150)} .l{flex:1;height:4px;background:var(--ev-purple-150);border-radius:2px} .l.on{background:var(--ev-purple-600)}
+.tray{position:absolute;top:0;right:0;bottom:0;width:164px;display:flex;gap:8px;padding-left:8px}
+.tray button{flex:1;border-radius:var(--ev-r-xl);font-size:12px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.slid{transform:translateX(-172px)}
+</style></head><body>
+<p class="cap">Normal</p>
+<div class="wrap"><div class="card"><div class="top"><span class="code">CT-26-001</span><span class="chip"><i></i>Menunggu</span></div>
+<div class="mid"><div class="cal"><b>NOV</b><span>12</span></div><div class="tt"><h3>12–13 November</h3><p>2 hari kerja · Cuti tahunan</p></div></div>
+<div class="foot"><p>Menunggu atasan langsung</p><div class="tr"><span class="n d"></span><span class="l on"></span><span class="n a"></span><span class="l"></span><span class="n t"></span><span class="l"></span><span class="n t"></span></div></div></div></div>
+<p class="cap">Baki aksi terbuka (geser kiri)</p>
+<div class="wrap" style="height:178px"><div class="tray"><button style="background:var(--ev-gold);color:var(--ev-gold-ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a2a00" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5a6 6 0 0 1 12 0c0 5 2 6.5 2 6.5H4s2-1.5 2-6.5zM10 19a2 2 0 0 0 4 0"/></svg>Ingatkan</button><button style="background:var(--ev-no-dot);color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>Batalkan</button></div>
+<div class="card slid" style="height:178px"><div class="top"><span class="code">IZ-26-014</span><span class="chip"><i></i>Menunggu</span></div>
+<div class="mid"><div class="cal"><b>NOV</b><span>18</span></div><div class="tt"><h3>18 November</h3><p>1 hari · Izin keperluan keluarga</p></div></div></div></div>
+</body></html>

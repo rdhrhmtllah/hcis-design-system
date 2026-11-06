@@ -1,0 +1,35 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.hd{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--ev-purple-900),var(--ev-purple-700));color:var(--ev-white)}
+.rg{position:absolute;top:0;right:0;pointer-events:none}.hd>*{position:relative}.hd>.rg{position:absolute}
+.gl{width:34px;height:34px;border-radius:var(--ev-r-md);background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;color:var(--ev-white)}
+.hit{flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent}
+.gp{flex:none;height:34px;padding:0 var(--ev-sp-12);border-radius:var(--ev-r-lg);background:var(--ev-gold);color:var(--ev-gold-ink);font-size:12px;font-weight:600;display:flex;align-items:center;white-space:nowrap}
+.sub{margin:1px 0 0;font-size:12px;line-height:16px;font-weight:500;color:var(--ev-purple-150)}
+
+h1,h2{margin:0;font-family:var(--font-display);color:var(--ev-white)}h2{font-size:22px;line-height:1.15;font-weight:700;letter-spacing:-.3px}h1{font-size:32px;line-height:1.05;font-weight:800}
+.st{padding:var(--ev-sp-12) var(--ev-sp-16) var(--ev-sp-16);border-radius:0 0 var(--ev-r-3xl) var(--ev-r-3xl)}.rw{display:flex;align-items:center;gap:var(--ev-sp-8)}
+.mn{padding-top:var(--ev-sp-20);padding-bottom:var(--ev-sp-20)}.ps{display:flex;gap:var(--ev-sp-8);margin-top:var(--ev-sp-10)}
+.sp{display:inline-flex;align-items:center;gap:var(--ev-sp-6);height:28px;padding:0 var(--ev-sp-10);border-radius:var(--ev-r-full);background:rgba(255,255,255,.14);font-size:12px;font-weight:600}.sp i{width:7px;height:7px;border-radius:4px}
+.dk{max-width:640px;padding:var(--ev-sp-16) var(--ev-sp-24) var(--ev-sp-24);border-radius:var(--ev-r-xl) var(--ev-r-xl) var(--ev-r-3xl) var(--ev-r-3xl)}
+.bc{font-size:12px;font-weight:600;color:var(--ev-purple-150);margin-bottom:var(--ev-sp-8)}.bc i{font-style:normal;margin:0 var(--ev-sp-4)}.bc b{color:var(--ev-white)}
+.dk .rw{align-items:flex-end}.dk button{display:flex;align-items:center;gap:var(--ev-sp-8);height:48px;padding:0 var(--ev-sp-16);border-radius:var(--ev-r-lg);font-size:14px;font-weight:700}
+.b2{background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);color:var(--ev-white)}.b1{background:var(--ev-gold);color:var(--ev-gold-ink);box-shadow:0 3px 0 var(--ev-gold-edge)}
+</style></head><body>
+<p class="cap">Halaman bertumpuk</p>
+<div class="hd st" style="max-width:390px"><svg class="rg" aria-hidden="true" width="390" height="90" viewBox="0 0 390 90"><circle cx="330" cy="30" r="70" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><circle cx="330" cy="30" r="44" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><path d="M300 18l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor" style="color:var(--ev-gold)"/></svg><div class="rw"><button class="hit" style="margin-left:-8px" aria-label="Kembali"><span class="gl"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span></button><div style="flex:1;min-width:0"><h2>Ajukan cuti</h2><p class="sub">ESS · Personal</p></div><span class="gp">Sisa 8 hari</span></div></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Halaman utama</p>
+<div class="hd st mn" style="max-width:390px"><svg class="rg" aria-hidden="true" width="390" height="90" viewBox="0 0 390 90"><circle cx="330" cy="30" r="70" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><circle cx="330" cy="30" r="44" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><path d="M300 18l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor" style="color:var(--ev-gold)"/></svg><h1>Cuti Saya</h1><div class="ps"><span class="sp"><i style="background:var(--ev-wait-dot)"></i>3 menunggu</span><span class="sp"><i style="background:var(--ev-purple-300)"></i>1 di HR</span></div></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Desktop (usulan)</p>
+<div class="hd dk"><svg class="rg" aria-hidden="true" width="640" height="90" viewBox="0 0 390 90"><circle cx="330" cy="30" r="70" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><circle cx="330" cy="30" r="44" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1.5"/><path d="M300 18l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor" style="color:var(--ev-gold)"/></svg><div class="bc">Pengajuan <i>/</i> <b>Cuti Saya</b></div><div class="rw"><div style="flex:1"><h1>Cuti Saya</h1><p class="sub">Kelola semua pengajuan cutimu di satu tempat</p></div><button class="b2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Unduh</button><button class="b1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Ajukan cuti</button></div></div>
+</body></html>

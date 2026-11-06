@@ -1,0 +1,25 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.tr{display:flex;align-items:center;gap:var(--ev-sp-6);height:44px;padding:0 var(--ev-sp-14);border-radius:var(--ev-r-md);background:var(--ev-white);box-shadow:var(--ev-sh-row);color:var(--ev-ink);font-size:14px;font-weight:600}
+.pp{margin-top:var(--ev-sp-8);width:240px;background:var(--ev-white);border-radius:var(--ev-r-lg);box-shadow:var(--ev-sh-pop);padding:var(--ev-sp-6)}
+.pp a{display:flex;align-items:center;gap:var(--ev-sp-10);min-height:44px;padding:0 var(--ev-sp-10);border-radius:var(--ev-r-md);font-size:14px;font-weight:600;color:var(--ev-ink)}
+.pp a svg{color:var(--ev-purple-600);flex:none}.hv{background:var(--ev-purple-50)}.dis{color:var(--ev-ink-3)!important}.dis svg{color:var(--ev-ink-3)!important}
+.bad,.bad svg{color:var(--ev-no-ink)!important}hr{border:0;height:1px;background:var(--ev-purple-100);margin:var(--ev-sp-4) var(--ev-sp-6)}
+</style></head><body>
+<button class="tr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg> Aksi</button>
+<div class="pp" role="menu">
+<a role="menuitem"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Lihat detail</a>
+<a role="menuitem" class="hv"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>Ingatkan atasan</a>
+<a role="menuitem" class="dis"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5M7 10l5-5 5 5M5 20h14"/></svg>Ubah tanggal</a>
+<hr><a role="menuitem" class="bad"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Batalkan pengajuan</a></div>
+</body></html>

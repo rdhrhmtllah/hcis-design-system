@@ -1,0 +1,26 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.sg{position:relative;display:flex;height:46px;padding:3px;border-radius:var(--ev-r-2xl);background:var(--ev-purple-100)}
+.sg .ind{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:40px;border-radius:var(--ev-r-xl);background:var(--ev-purple-600);box-shadow:0 4px 10px -2px rgba(59,34,160,.5)}
+.sg.s3 .ind{width:calc(33.333% - 2px);left:calc(33.333% + 1px)}
+.sg a{position:relative;flex:1;height:40px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--ev-purple-800)}.sg a.on{color:var(--ev-white)}
+.dk{max-width:400px;padding:var(--ev-sp-12) var(--ev-sp-16);border-radius:var(--ev-r-2xl);background:linear-gradient(180deg,var(--ev-purple-900),var(--ev-purple-700))}
+.sg.gl{background:rgba(255,255,255,.14)}.sg.gl .ind{background:var(--ev-white);box-shadow:none}.sg.gl a{color:var(--ev-white)}.sg.gl a.on{color:var(--ev-purple-800)}
+</style></head><body>
+<p class="cap">Latar terang</p>
+<div class="sg" style="max-width:370px"><i class="ind"></i><a class="on">Umum · 3</a><a>Khusus · 8</a></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Tiga segmen, penanda di tengah</p>
+<div class="sg s3" style="max-width:370px"><i class="ind"></i><a>Semua</a><a class="on">Menunggu · 2</a><a>Selesai</a></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Latar ungu tua (Notifikasi)</p>
+<div class="dk"><div class="sg gl" style="max-width:370px"><i class="ind"></i><a class="on">Semua</a><a>Belum dibaca · 3</a></div></div>
+</body></html>

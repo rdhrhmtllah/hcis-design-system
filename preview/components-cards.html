@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cards &amp; rows · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>.col { width: 358px; display: grid; gap: 12px; align-content: start; } .hero { margin: 0; }</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Cards</span><h1 class="ev-title-l">White cards on lavender, purple-tinted shadow</h1>
+<p class="ev-body">BalanceCard leads with one big number. RequestCard shows type, status, range and route. HistoryRow is the compact list form.</p></header>
+<div class="pv-row" style="gap:20px">
+  <div class="col"><span class="ev-label">BalanceCard</span><div id="bal"></div><span class="ev-label" style="margin-top:8px">ShortcutTile</span><div id="sh"></div></div>
+  <div class="col"><span class="ev-label">RequestCard</span><div id="rc"></div></div>
+  <div class="col"><span class="ev-label">HistoryRow</span><div id="hr"></div><span class="ev-label" style="margin-top:8px">InfoList</span><div class="card" id="il"></div></div>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+document.getElementById('bal').innerHTML = EV.balanceCard({ remaining: 8, total: 12, used: 2, pending: 2, year: 2026, cta: EV.button({ label: 'Ajukan cuti', icon: 'plus', arrow: true }) });
+document.getElementById('sh').innerHTML = EV.shortcuts([{ icon: 'calendar-check', label: 'Saldo & aturan', tone: 'gold' }, { icon: 'history', label: 'Riwayat' }, { icon: 'help', label: 'Bantuan' }]);
+document.getElementById('rc').innerHTML = EV.requestCard({ id: 'a', type: 'Cuti tahunan', icon: 'calendar-days', code: 'CT-2611-014', status: 'wait', range: '12–13 November', meta: '2 hari kerja · diajukan 10 Nov',
+  steps: [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Menunggu', state: 'active' }, { label: 'HR', state: 'todo' }] }) +
+  '<div style="height:12px"></div>' + EV.requestCard({ id: 'b', type: 'Cuti sakit', icon: 'heart', code: 'CS-2611-006', status: 'hr', range: '2–3 November', meta: '2 hari kerja · surat dokter terlampir',
+  steps: [{ label: 'Diajukan', state: 'done' }, { label: 'Atasan', sub: 'Setuju', state: 'done' }, { label: 'HR', sub: 'Menunggu', state: 'active' }] });
+document.getElementById('hr').innerHTML = EV.historyRow({ id: 1, day: 21, mon: 'Okt', title: 'Cuti tahunan', meta: '21–22 Okt · 2 hari', status: 'ok' }) +
+  EV.historyRow({ id: 2, day: 6, mon: 'Okt', title: 'Izin setengah hari', meta: '6 Okt · 0,5 hari', status: 'no' }) +
+  EV.historyRow({ id: 3, day: 15, mon: 'Sep', title: 'Cuti tahunan', meta: '15 Sep · 1 hari', status: 'cx' });
+document.getElementById('il').innerHTML = EV.infoList([['Jenis', 'Cuti tahunan'], ['Tanggal', '12–13 Nov 2026'], ['Durasi', '<span class="ev-num">2 hari kerja</span>'], ['Status', EV.statusChip('wait')]]);
+</script>
+</body></html>

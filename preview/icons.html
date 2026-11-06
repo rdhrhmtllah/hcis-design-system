@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Icons · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .tl { width: 44px; height: 44px; border-radius: var(--ev-r-md); display: grid; place-items: center; }
+  .sizes { display: flex; align-items: flex-end; gap: 18px; color: var(--ev-ink); }
+  .sizes figure { margin: 0; display: grid; justify-items: center; gap: 6px; }
+  .sizes figcaption, .note { font: 500 11px/1.35 var(--font-body); color: var(--ev-ink-2); }
+  .map { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; }
+  .map div { display: flex; align-items: center; gap: 8px; background: var(--ev-white); border-radius: var(--ev-r-md); padding: 7px 10px; box-shadow: var(--ev-sh-row); color: var(--ev-ink); font: 500 11px/1.2 var(--font-body); }
+  .map s { color: var(--ev-ink-2); text-decoration: none; }
+  .bar { display: flex; gap: 10px; align-items: center; margin: 0 0 12px; flex-wrap: wrap; }
+  .bar input { flex: 1; min-width: 220px; height: 44px; border-radius: var(--ev-r-lg); border: 1.5px solid var(--ev-line, #e4dff0); padding: 0 14px; font: 500 14px var(--font-body); color: var(--ev-ink); background: var(--ev-white); }
+  .bar input:focus-visible { outline: 2px solid var(--ev-focus); outline-offset: 2px; }
+  .ig { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+  .ic { background: var(--ev-white); border: 0; border-radius: var(--ev-r-lg); box-shadow: var(--ev-sh-row); padding: 14px 6px 10px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--ev-ink); cursor: pointer; font: inherit; }
+  .ic:hover { color: var(--ev-purple-800); }
+  .ic:focus-visible { outline: 2px solid var(--ev-focus); outline-offset: 2px; }
+  .ic b { font: 600 10.5px/1.2 var(--font-body); text-align: center; word-break: break-word; }
+  .ic.is-copied b::after { content: " ✓"; color: var(--ev-ok-ink); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Iconography · Lucide</span><h1 class="ev-title-l">Every icon comes from Lucide</h1>
+<p class="ev-body">The full Lucide library (<span id="ver"></span>, ISC license). 24×24 grid, stroke = currentColor, stroke width 2, round caps and joins. Rendered from <code>build/icons.js</code>. One SVG per icon in <code>assets/icons/</code>. No custom-drawn icons and no mixing with other sets.</p></header>
+
+<div class="pv-row" style="gap:16px;margin-bottom:16px;align-items:stretch">
+  <section class="pv-panel"><span class="ev-label">Sizes (stroke stays 2)</span>
+    <div class="sizes" id="sizes"></div>
+    <p class="note">16 inline and chips · 20 rows and buttons · 22 tile glyph · 24 nav and headers</p></section>
+  <section class="pv-panel"><span class="ev-label">In tiles (rounded square, ev-r-md)</span>
+    <div class="pv-row" id="tiles"></div>
+    <p class="note">Purple-50 tile with purple-800 glyph by default. Gold tile with gold-ink only on the primary CTA. Status tiles use the status pair.</p></section>
+</div>
+
+<section class="pv-panel" style="margin-bottom:16px"><span class="ev-label">Retired Evo names → Lucide (still accepted by evIcon)</span>
+  <div class="map" id="map"></div></section>
+
+<section class="pv-panel"><span class="ev-label">Library · click to copy the name</span>
+  <div class="bar"><input id="q" type="search" placeholder="Search name or tag, e.g. calendar, cuti, money, user" aria-label="Search icons"><span class="note" id="count"></span></div>
+  <div class="ig" id="grid"></div></section>
+
+<script src="../build/icons.js"></script>
+<script src="../build/lucide-tags.js"></script>
+<script>
+document.getElementById('ver').textContent = 'v' + EV_LUCIDE_VERSION + ', ' + evIconNames().length + ' icons';
+document.getElementById('sizes').innerHTML = [16, 20, 22, 24].map(function (s) { return '<figure>' + evIcon('calendar-days', { size: s }) + '<figcaption>' + s + 'px</figcaption></figure>'; }).join('');
+var T = [['calendar-days','var(--ev-purple-50)','var(--ev-purple-800)'],['calendar-plus','var(--ev-gold)','var(--ev-gold-ink)'],['circle-check','var(--ev-ok-bg)','var(--ev-ok-ink)'],['clock','var(--ev-wait-bg)','var(--ev-wait-ink)'],['calendar-x','var(--ev-no-bg)','var(--ev-no-ink)'],['info','var(--ev-info-bg)','var(--ev-info-ink)'],['bell','var(--ev-purple-600)','#fff']];
+document.getElementById('tiles').innerHTML = T.map(function (t) { return '<span class="tl" style="background:' + t[1] + ';color:' + t[2] + '">' + evIcon(t[0], { size: 22 }) + '</span>'; }).join('');
+document.getElementById('map').innerHTML = Object.keys(EV_ICON_LEGACY).sort().map(function (k) {
+  return '<div>' + evIcon(k, { size: 18 }) + '<span><s>' + k + '</s> → <b>' + EV_ICON_LEGACY[k].lucide + '</b></span></div>'; }).join('');
+var names = evIconNames().sort(), grid = document.getElementById('grid'), count = document.getElementById('count');
+function render(q) {
+  q = (q || '').trim().toLowerCase();
+  var list = !q ? names : names.filter(function (n) { return n.indexOf(q) > -1 || (EV_LUCIDE_TAGS[n] || '').indexOf(q) > -1; });
+  count.textContent = list.length + ' of ' + names.length;
+  grid.innerHTML = list.map(function (n) { return '<button class="ic" type="button" data-n="' + n + '" title="' + (EV_LUCIDE_TAGS[n] || '') + '">' + evIcon(n, { size: 24 }) + '<b>' + n + '</b></button>'; }).join('');
+}
+var tm; document.getElementById('q').addEventListener('input', function (e) { clearTimeout(tm); tm = setTimeout(function () { render(e.target.value); }, 120); });
+grid.addEventListener('click', function (e) {
+  var b = e.target.closest('.ic'); if (!b) { return; }
+  if (navigator.clipboard) { navigator.clipboard.writeText(b.getAttribute('data-n')).catch(function () {}); }
+  b.classList.add('is-copied'); setTimeout(function () { b.classList.remove('is-copied'); }, 1200);
+});
+render('');
+</script>
+</body></html>

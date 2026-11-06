@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preview cards · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+  .cardlink { display: block; background: var(--ev-white); border-radius: var(--ev-r-2xl); box-shadow: var(--ev-sh-card); overflow: hidden; color: inherit; text-decoration: none; }
+  .cardlink:focus-visible { outline: 2px solid var(--ev-focus); outline-offset: 3px; }
+  .frame { height: 240px; overflow: hidden; position: relative; background: var(--ev-bg); }
+  .frame iframe { width: 1280px; height: 960px; border: 0; transform: scale(.3); transform-origin: 0 0; pointer-events: none; }
+  .meta { padding: 12px 16px 14px; }
+  .meta b { display: block; font: 700 var(--ev-fs-title-s)/var(--ev-lh-title-s) var(--font-body); }
+  .meta span { font: 500 var(--ev-fs-caption)/var(--ev-lh-caption) var(--font-body); color: var(--ev-ink-2); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Evo HCIS Mobile design system</span><h1 class="ev-display-l">Preview cards</h1>
+<p class="ev-body">Foundations, components and an applied surface. Open any card at full size; the interactive app lives in the UI kit.</p></header>
+<div class="grid" id="g"></div>
+<script>
+var C = [
+  ['colors-primary.html', 'Colors — brand', 'Purple ramp, gold, ink and surfaces'],
+  ['colors-status.html', 'Colors — status', 'Five status families with contrast'],
+  ['typography-specimens.html', 'Typography', 'Bricolage Grotesque + Inter scale'],
+  ['spacing-tokens.html', 'Spacing', 'Scale, anatomy, widths, breakpoints'],
+  ['radius-shadows.html', 'Shape & elevation', 'Radii, tinted shadows, 3D key'],
+  ['motion-tokens.html', 'Motion', 'Easings and durations'],
+  ['icons.html', 'Icons', 'Lucide only: 2,029 icons, searchable'],
+  ['brand-logo.html', 'Brand', 'Logo usage on white and purple'],
+  ['components-buttons.html', 'Buttons', 'Variants, states, header controls'],
+  ['components-status-chips.html', 'Chips & stepper', 'Status, summary, filter, stepper'],
+  ['components-cards.html', 'Cards & rows', 'Balance, request, history, info'],
+  ['components-inputs.html', 'Inputs', 'Fields, errors, date range, options'],
+  ['components-navigation.html', 'Navigation', 'PageHeader, BottomNav, menu'],
+  ['components-feedback.html', 'Feedback', 'Messages, toasts, empty, full-screen'],
+  ['components-sheets.html', 'Sheets', 'Confirm and picker sheets'],
+  ['surface-cuti-saya.html', 'Surface — Cuti Saya', 'Home screen assembled'],
+  ['../ui_kits/app/index.html', 'UI kit — interactive', 'Full leave-request flow']];
+document.getElementById('g').innerHTML = C.map(function (c) {
+  return '<a class="cardlink" href="' + c[0] + '"><div class="frame"><iframe src="' + c[0] + '" loading="lazy" tabindex="-1" title="' + c[1] + '"></iframe></div><div class="meta"><b>' + c[1] + '</b><span>' + c[2] + '</span></div></a>'; }).join('');
+</script>
+</body></html>

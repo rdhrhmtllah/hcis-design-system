@@ -1,0 +1,24 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.sk{position:relative;overflow:hidden;background:var(--ev-purple-100);border-radius:var(--ev-r-md)}
+.sk::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:sw 1.5s ease-in-out infinite}
+@keyframes sw{to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.sk::after{animation:none}}
+.c{max-width:360px;background:var(--ev-white);border-radius:var(--ev-r-2xl);box-shadow:var(--ev-sh-card);padding:var(--ev-sp-14);margin-bottom:var(--ev-sp-10)}
+.m{display:flex;gap:var(--ev-sp-12);align-items:center;margin-top:var(--ev-sp-10)}
+</style></head><body>
+<div class="c"><div style="display:flex;justify-content:space-between"><div class="sk" style="width:80px;height:12px"></div><div class="sk" style="width:76px;height:24px;border-radius:12px"></div></div>
+<div class="m"><div class="sk" style="width:48px;height:56px;border-radius:var(--ev-r-lg)"></div><div style="flex:1"><div class="sk" style="width:70%;height:18px"></div><div class="sk" style="width:50%;height:12px;margin-top:8px"></div></div></div>
+<div class="sk" style="height:44px;margin-top:var(--ev-sp-12);border-radius:var(--ev-r-lg)"></div></div>
+<div class="c" style="display:flex;gap:var(--ev-sp-12);align-items:center"><div class="sk" style="width:44px;height:44px;border-radius:var(--ev-r-lg)"></div><div style="flex:1"><div class="sk" style="width:75%;height:14px"></div><div class="sk" style="width:45%;height:12px;margin-top:8px"></div></div></div>
+</body></html>

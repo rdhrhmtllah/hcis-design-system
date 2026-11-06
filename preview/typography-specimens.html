@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typography specimens · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .ts { display: grid; grid-template-columns: 170px 1fr; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--ev-purple-50); }
+  .ts:last-child { border-bottom: 0; }
+  .ts code { color: var(--ev-ink-2); display: block; margin-top: 2px; }
+  .fam { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fam .pv-panel div:first-of-type { font-size: 64px; line-height: 1; margin: 8px 0; }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Typography</span><h1 class="ev-title-l">Bricolage Grotesque + Inter, 12 registered styles</h1>
+<p class="ev-body">Display face for titles, big numbers and dates; Inter for everything else. Hierarchy comes from weight. Numbers are always tabular.</p></header>
+<div class="fam" style="margin-bottom:16px">
+  <section class="pv-panel"><span class="ev-label">--font-display · 700 / 800</span><div style="font-family:var(--font-display);font-weight:800;color:var(--ev-purple-800)">Aa 12</div><span class="ev-body-sm">Bricolage Grotesque</span></section>
+  <section class="pv-panel"><span class="ev-label">--font-body · 400–800</span><div style="font-family:var(--font-body);font-weight:700">Aa 12</div><span class="ev-body-sm">Inter</span></section>
+</div>
+<section class="pv-panel">
+  <div class="ts"><div><b class="ev-body-strong">display-xl</b><code>display 56/0.95 · 800</code></div><div class="ev-display-xl" style="color:var(--ev-purple-800)">12</div></div>
+  <div class="ts"><div><b class="ev-body-strong">display-l</b><code>display 32/1.05 · 800</code></div><div class="ev-display-l">Cuti Saya</div></div>
+  <div class="ts"><div><b class="ev-body-strong">title-l</b><code>display 22/1.15 · 700</code></div><div class="ev-title-l">Pengajuan terkirim!</div></div>
+  <div class="ts"><div><b class="ev-body-strong">title-m</b><code>display 18/1.2 · 700</code></div><div class="ev-title-m">12–13 November</div></div>
+  <div class="ts"><div><b class="ev-body-strong">heading-s</b><code>body 16/1.25 · 700</code></div><div class="ev-heading-s">Kirim pengajuan</div></div>
+  <div class="ts"><div><b class="ev-body-strong">title-s</b><code>body 15/1.3 · 700</code></div><div class="ev-title-s">Cuti tahunan</div></div>
+  <div class="ts"><div><b class="ev-body-strong">body</b><code>body 14/1.45 · 500</code></div><div class="ev-body" style="color:var(--ev-ink-2)">Atasan langsung kamu sudah menerima pengajuan ini.</div></div>
+  <div class="ts"><div><b class="ev-body-strong">body-strong</b><code>body 14/1.3 · 600</code></div><div class="ev-body-strong">Rina Susanti</div></div>
+  <div class="ts"><div><b class="ev-body-strong">body-sm</b><code>body 13/1.45 · 500</code></div><div class="ev-body-sm">2 hari kerja · Potong 2 hari</div></div>
+  <div class="ts"><div><b class="ev-body-strong">caption</b><code>body 12/1.35 · 500</code></div><div class="ev-caption">4 Nov 2026, 09:12</div></div>
+  <div class="ts"><div><b class="ev-body-strong">chip</b><code>body 12/16px · 600</code></div><div class="ev-chip-text">Menunggu</div></div>
+  <div class="ts"><div><b class="ev-body-strong">label</b><code>body 11/14px · 600 · caps .06em</code></div><div class="ev-label">CT-26-014</div></div>
+</section>
+<p class="pv-note">Do not add sizes outside this table. Classes: <code>.ev-display-xl … .ev-label</code> in colors_and_type.css.</p>
+</body></html>

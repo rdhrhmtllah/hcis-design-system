@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Motion tokens · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .lane { display: grid; grid-template-columns: 170px 1fr; gap: 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--ev-purple-50); }
+  .track { position: relative; height: 40px; background: var(--ev-tint); border-radius: var(--ev-r-md); }
+  .ball { position: absolute; top: 6px; left: 6px; width: 28px; height: 28px; border-radius: var(--ev-r-sm); background: var(--ev-purple-600); box-shadow: 0 3px 0 var(--ev-purple-800); }
+  .go .ball { left: calc(100% - 34px); }
+  .dur { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
+  .dur i { display: block; height: 10px; border-radius: 5px; background: var(--ev-gold); box-shadow: 0 2px 0 var(--ev-gold-edge); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Motion</span><h1 class="ev-title-l">Motion explains a state change</h1>
+<p class="ev-body">Four easings, seven durations. Exits are shorter than entrances. Reduced-motion collapses every duration to 0.01s.</p></header>
+<div class="pv-grid">
+  <section class="pv-panel"><div style="display:flex;justify-content:space-between;align-items:center"><span class="ev-label" style="margin:0">Easings (--ev-ease-*)</span><button id="play" style="min-height:44px;padding:0 16px;border:0;border-radius:var(--ev-r-lg);background:var(--ev-purple-600);color:#fff;font:700 14px/1 var(--font-body);box-shadow:var(--ev-sh-btn);cursor:pointer">Putar</button></div>
+    <div id="lanes"></div></section>
+  <section class="pv-panel"><span class="ev-label">Durations (--ev-t-*)</span><div id="durs"></div></section>
+</div>
+<script>
+var cs = getComputedStyle(document.documentElement);
+var E = [['enter','Sheet up, toast in, card stagger'],['exit','Leaving the screen'],['spring','Chip select, FAB press, success check'],['standard','Position and size changes']];
+document.getElementById('lanes').innerHTML = E.map(function (e) {
+  return '<div class="lane"><div><b class="ev-body-strong">ease-' + e[0] + '</b><div class="ev-caption">' + e[1] + '</div><code class="ev-caption">' + cs.getPropertyValue('--ev-ease-' + e[0]).trim() + '</code></div><div class="track"><span class="ball" style="transition:left var(--ev-t-page) var(--ev-ease-' + e[0] + ')"></span></div></div>'; }).join('');
+document.getElementById('durs').innerHTML = ['fast','exit','base','mid','enter','slow','page'].map(function (d) {
+  var v = cs.getPropertyValue('--ev-t-' + d).trim();
+  return '<div class="dur"><code style="width:90px">t-' + d + '</code><span class="ev-body-strong ev-num" style="width:44px">' + v + '</span><i style="width:' + (parseFloat(v) * 600) + 'px"></i></div>'; }).join('');
+var on = false; function play() { on = !on; document.querySelectorAll('.track').forEach(function (t) { t.classList.toggle('go', on); }); }
+document.getElementById('play').onclick = play; setTimeout(play, 400);
+</script>
+</body></html>

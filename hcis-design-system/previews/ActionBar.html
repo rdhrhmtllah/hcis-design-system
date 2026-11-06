@@ -1,0 +1,35 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+.bar{display:flex;gap:var(--ev-sp-10);max-width:390px;padding:var(--ev-sp-12) var(--ev-sp-16) 18px;background:var(--ev-white);border-radius:var(--ev-r-2xl) var(--ev-r-2xl) 0 0;box-shadow:0 -14px 30px -12px rgba(45,23,120,.3)}
+.bar.col2{flex-direction:column;gap:0}
+.sum{display:flex;align-items:center;justify-content:space-between;gap:var(--ev-sp-8);margin-bottom:var(--ev-sp-10);font-size:13px;font-weight:600;color:var(--ev-ink-2)}
+.c{height:28px;padding:0 var(--ev-sp-10);border-radius:var(--ev-r-lg);background:var(--ev-ok-bg);color:var(--ev-ok-ink);font-size:12px;font-weight:600;line-height:28px} .c.off{background:var(--ev-purple-50);color:var(--ev-ink-2)}
+button{display:flex;align-items:center;justify-content:center;gap:var(--ev-sp-8)}
+.ghostr{flex:none;height:54px;padding:0 18px;border-radius:var(--ev-r-xl);background:var(--ev-white);border:1.5px solid var(--ev-no-edge);font-size:15px;font-weight:700;color:var(--ev-no-ink)}
+.ghostp{flex:none;height:54px;padding:0 var(--ev-sp-16);border-radius:var(--ev-r-xl);background:var(--ev-purple-50);border:1.5px solid var(--ev-purple-150);font-size:14px;font-weight:700;color:var(--ev-purple-800)}
+.pri{flex:1;height:54px;border-radius:var(--ev-r-xl);background:var(--ev-purple-600);box-shadow:var(--ev-sh-btn);font-size:15px;font-weight:700;color:var(--ev-white)}
+.pri.done{background:var(--ev-ok-bg);color:var(--ev-ok-ink);box-shadow:none}
+.pri.full,.pri.big{font-size:16px} .pri.full{width:100%;flex:none}
+.pri.dis{background:var(--ev-purple-150);color:var(--ev-ink-3);box-shadow:none}
+</style></head><body>
+<p class="cap">Detail · bisa dibatalkan</p>
+<div class="bar"><button class="ghostr">Batalkan</button><button class="pri">Ingatkan atasan</button></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Detail · sudah diingatkan</p>
+<div class="bar"><button class="ghostr">Batalkan</button><button class="pri done">Sudah diingatkan</button></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Formulir · siap</p>
+<div class="bar col2"><div class="sum"><span>12–13 Nov · 2 hari kerja</span><span class="c">Sisa 10 hari</span></div><button class="pri full">Lanjut<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Formulir · nonaktif</p>
+<div class="bar col2"><div class="sum"><span>Belum ada tanggal</span><span class="c off">Pilih dulu</span></div><button class="pri full dis" aria-disabled="true">Pilih tanggal cuti<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<p class="cap" style="margin-top:var(--ev-sp-16)">Hasil</p>
+<div class="bar"><button class="ghostp">Ajukan lagi</button><button class="pri big">Lihat pengajuan saya</button></div>
+</body></html>

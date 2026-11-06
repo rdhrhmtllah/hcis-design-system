@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spacing &amp; sizes · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .sp { display: grid; grid-template-columns: 90px 50px 1fr; gap: 12px; align-items: center; padding: 6px 0; }
+  .sp i { display: block; height: 16px; border-radius: var(--ev-r-xs); background: var(--ev-purple-600); }
+  .anat { position: relative; width: 340px; background: var(--ev-bg); border-radius: var(--ev-r-2xl); padding: 16px; outline: 1px dashed var(--ev-dash); outline-offset: -1px; }
+  .anat .c { background: var(--ev-white); border-radius: var(--ev-r-2xl); box-shadow: var(--ev-sh-card); padding: 16px; outline: 1px dashed var(--ev-purple-300); }
+  .anat .c + .c { margin-top: 12px; }
+  .tag { display: inline-block; font: 600 11px/1 var(--font-body); background: var(--ev-gold); color: var(--ev-gold-ink); padding: 3px 6px; border-radius: 4px; }
+  .touch { width: 44px; height: 44px; border-radius: var(--ev-r-md); outline: 2px dashed var(--ev-no-dot); display: grid; place-items: center; }
+  .touch span { width: 34px; height: 34px; border-radius: var(--ev-r-md); background: var(--ev-purple-50); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Spacing</span><h1 class="ev-title-l">12-step spacing scale, 44px touch</h1>
+<p class="ev-body">Page gutter 16, card padding 16–20, card gap 12, section gap 24. Every tap target is at least 44×44.</p></header>
+<div class="pv-row" style="align-items:stretch">
+  <section class="pv-panel" style="flex:1;min-width:300px"><span class="ev-label">--ev-sp-*</span><div id="sp"></div></section>
+  <section class="pv-panel"><span class="ev-label">Page anatomy</span>
+    <div class="anat"><span class="tag">gutter 16</span>
+      <div class="c" style="margin-top:8px"><span class="tag">pad 16</span><div class="ev-title-m" style="margin-top:6px">12–13 November</div><div class="ev-body-sm" style="color:var(--ev-ink-2)">2 hari kerja</div></div>
+      <div style="text-align:center;margin:-2px 0"><span class="tag">gap 12</span></div>
+      <div class="c"><div class="ev-title-m">2–3 November</div><div class="ev-body-sm" style="color:var(--ev-ink-2)">Cuti sakit</div></div>
+    </div>
+    <div class="pv-row" style="margin-top:16px;align-items:center"><div class="touch"><span></span></div><span class="ev-body-sm">34px glass button → 44px hit area (<code>--ev-touch</code>)</span></div>
+  </section>
+  <section class="pv-panel" style="min-width:260px"><span class="ev-label">Layout widths &amp; breakpoints</span><div id="sz"></div>
+    <p class="pv-note">Tablet and desktop rules are proposals.</p></section>
+</div>
+<script>
+var cs = getComputedStyle(document.documentElement);
+document.getElementById('sp').innerHTML = [2,4,6,8,10,12,14,16,20,24,32,48].map(function (n) {
+  return '<div class="sp"><code>sp-' + n + '</code><span class="ev-caption">' + cs.getPropertyValue('--ev-sp-' + n).trim() + '</span><i style="width:calc(var(--ev-sp-' + n + ') * 4)"></i></div>'; }).join('');
+document.getElementById('sz').innerHTML = ['touch','w-phone','w-rail','w-sidebar','w-form','w-dialog-s','w-dialog-m','w-panel','w-content','bp-tablet','bp-desktop','bp-wide'].map(function (t) {
+  return '<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--ev-purple-50)"><code>--ev-' + t + '</code><b class="ev-body-strong ev-num">' + cs.getPropertyValue('--ev-' + t).trim() + '</b></div>'; }).join('');
+</script>
+</body></html>

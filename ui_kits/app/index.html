@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuti Saya — Evo HCIS Mobile UI kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="kit.css">
+<style>
+  html, body { margin: 0; min-height: 100%; }
+  body { background: radial-gradient(1200px 600px at 70% -10%, var(--ev-purple-100), transparent 60%), var(--ev-bg); padding: 0; }
+  .stage { min-height: 100vh; display: flex; align-items: center; justify-content: center; gap: 56px; padding: 32px 24px; flex-wrap: wrap; }
+  .notes { width: 300px; color: var(--ev-ink); }
+  .notes__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .notes__brand img { width: 48px; height: 48px; object-fit: contain; background: var(--ev-white); border-radius: var(--ev-r-md); padding: 4px; box-shadow: var(--ev-sh-row); }
+  .notes h1 { margin: 0; }
+  .notes p { color: var(--ev-ink-2); margin: 8px 0 20px; }
+  .jump { display: grid; gap: 6px; }
+  .jump button { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: var(--ev-r-lg); border: 1.5px solid transparent; background: transparent; color: var(--ev-ink); font: 600 var(--ev-fs-body)/1 var(--font-body); cursor: pointer; text-align: left; }
+  .jump button:hover { background: var(--ev-white); }
+  .jump button.is-active { background: var(--ev-white); border-color: var(--ev-purple-150); color: var(--ev-purple-800); box-shadow: var(--ev-sh-row); }
+  .jump .n { width: 24px; height: 24px; border-radius: var(--ev-r-sm); background: var(--ev-purple-50); color: var(--ev-purple-800); display: grid; place-items: center; font: 700 var(--ev-fs-caption)/1 var(--font-body); }
+  .jump button.is-active .n { background: var(--ev-gold); color: var(--ev-gold-ink); }
+
+  .device { width: 390px; height: 844px; border-radius: 54px; padding: 12px; background: var(--ev-ink); box-shadow: 0 40px 80px -30px rgba(45,23,120,.55), inset 0 0 0 2px #2c2650; flex: none; }
+  .device__screen { position: relative; width: 100%; height: 100%; border-radius: 42px; overflow: hidden; background: var(--ev-bg); }
+  .statusbar { position: absolute; top: 0; left: 0; right: 0; height: 44px; z-index: 90; display: flex; align-items: center; justify-content: space-between; padding: 0 28px 0 32px; color: var(--ev-white); font: 700 var(--ev-fs-body)/1 var(--font-body); pointer-events: none; }
+  .statusbar::before { content: ""; position: absolute; left: 50%; top: 10px; width: 112px; height: 30px; margin-left: -56px; border-radius: 20px; background: #000; }
+  .statusbar__r { display: flex; gap: 6px; align-items: center; }
+  .statusbar__batt { width: 24px; height: 12px; border: 2px solid currentColor; border-radius: 4px; position: relative; box-sizing: border-box; }
+  .statusbar__batt::after { content: ""; position: absolute; inset: 1px 5px 1px 1px; background: currentColor; border-radius: 1px; }
+  #screen { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+  #screen::-webkit-scrollbar { display: none; }
+  #screen .ph { padding-top: 52px; }
+  .device .ph--compact { padding-top: 52px; }
+  .home-ind { position: absolute; bottom: 6px; left: 50%; width: 120px; height: 4px; margin-left: -60px; border-radius: 2px; background: var(--ev-ink); opacity: .35; z-index: 95; pointer-events: none; }
+  @media (max-width: 760px) { .notes { width: 100%; max-width: 390px; } }
+</style>
+</head>
+<body class="ev-root">
+<main class="stage">
+  <aside class="notes">
+    <div class="notes__brand"><img src="../../assets/evo-group-logo.png" alt="Evo Group"><div><div class="ev-label">UI kit · HCIS Mobile</div><h1 class="ev-title-l">Cuti Saya</h1></div></div>
+    <p class="ev-body">Alur cuti lengkap yang disusun hanya dari token, ikon, dan komponen paket ini. Semua tombol di dalam ponsel bisa diketuk.</p>
+    <div class="ev-label" style="margin-bottom:8px">Lompat ke layar</div>
+    <nav class="jump" aria-label="Layar">
+      <button data-jump="home"><span class="n">1</span>Beranda cuti</button>
+      <button data-jump="form"><span class="n">2</span>Ajukan cuti</button>
+      <button data-jump="sending"><span class="n">3</span>Mengirim</button>
+      <button data-jump="success"><span class="n">4</span>Pengajuan terkirim</button>
+      <button data-jump="detail"><span class="n">5</span>Detail pengajuan</button>
+      <button data-jump="cancel"><span class="n">6</span>Konfirmasi batal</button>
+      <button data-jump="history"><span class="n">7</span>Riwayat cuti</button>
+      <button data-jump="menu"><span class="n">8</span>Menu HCIS</button>
+      <button data-jump="notif"><span class="n">9</span>Notifikasi</button>
+    </nav>
+  </aside>
+
+  <div class="device" aria-label="Pratinjau ponsel">
+    <div class="device__screen">
+      <div class="statusbar"><span class="ev-num">10.42</span><span class="statusbar__r" id="sb-icons"></span></div>
+      <div id="screen"></div>
+      <div id="chrome"></div>
+      <div id="toast"></div>
+      <div id="overlay"></div>
+      <div class="home-ind"></div>
+    </div>
+  </div>
+</main>
+
+<script src="../../build/icons.js"></script>
+<script src="components.js"></script>
+<script src="app.js"></script>
+<script>
+  document.getElementById('sb-icons').innerHTML = evIcon('bar-chart', { size: 14, stroke: 2.6 }) + '<span class="statusbar__batt"></span>';
+</script>
+</body>
+</html>

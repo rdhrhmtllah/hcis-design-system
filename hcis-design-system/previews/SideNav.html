@@ -1,0 +1,33 @@
+<!doctype html><html><head>
+<link rel="stylesheet" href="../assets/tokens.css"><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ev-bg);font-family:var(--font-body);font-variant-numeric:tabular-nums;color:var(--ev-ink);padding:var(--ev-sp-16);-webkit-font-smoothing:antialiased}
+.cap{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-ink-2);margin:0 0 var(--ev-sp-6)}
+.row{display:flex;flex-wrap:wrap;gap:var(--ev-sp-12);align-items:flex-start;margin-bottom:var(--ev-sp-16)}
+.col{display:flex;flex-direction:column;gap:var(--ev-sp-6)}
+button{font-family:inherit;border:0;cursor:pointer}
+</style>
+<style>
+nav{display:flex;flex-direction:column;gap:var(--ev-sp-8);background:linear-gradient(180deg,var(--ev-purple-900),var(--ev-purple-800));border-radius:var(--ev-r-2xl);padding:var(--ev-sp-12);height:470px;color:var(--ev-white)}
+.rail{width:72px;align-items:center;padding:var(--ev-sp-12) var(--ev-sp-6)}.side{width:248px}
+.lg{flex:none;width:34px;height:34px;border-radius:var(--ev-r-md);background:var(--ev-gold);box-shadow:0 3px 0 var(--ev-gold-edge);margin-bottom:var(--ev-sp-8)}
+.br{display:flex;align-items:center;gap:var(--ev-sp-10);margin-bottom:var(--ev-sp-8);font-family:var(--font-display);font-weight:800;font-size:22px}.br .lg{margin:0}
+.ti{flex:none;width:36px;height:36px;border-radius:var(--ev-r-md);background:var(--ev-purple-100);color:var(--ev-purple-800);box-shadow:0 3px 0 var(--ev-purple-300);display:flex;align-items:center;justify-content:center}
+.it{display:flex;align-items:center;gap:var(--ev-sp-10);min-height:48px;padding:var(--ev-sp-6) var(--ev-sp-10) var(--ev-sp-6) var(--ev-sp-6);border-radius:var(--ev-r-xl);font-size:14px;font-weight:600}
+.it.on,.rt.on{background:var(--ev-white);color:var(--ev-ink)}.on .ti{background:var(--ev-purple-600);color:var(--ev-white);box-shadow:0 3px 0 var(--ev-purple-800)}
+.rt{display:flex;flex-direction:column;align-items:center;gap:var(--ev-sp-4);width:60px;padding:var(--ev-sp-6) 0;border-radius:var(--ev-r-xl)}.rt small{font-size:11px;font-weight:600}
+.g{margin:var(--ev-sp-8) var(--ev-sp-6) 0;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;opacity:.85}
+.sp{flex:1}
+.me{display:flex;align-items:center;gap:var(--ev-sp-10);padding:var(--ev-sp-8);border-radius:var(--ev-r-xl);background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-size:14px}.me b{display:block;font-weight:700}.me small{font-size:12px;color:var(--ev-purple-150)}
+.av{width:36px;height:36px;border-radius:var(--ev-r-md);background:var(--ev-purple-600);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px}
+</style></head><body>
+<div class="row" style="gap:var(--ev-sp-24);align-items:stretch;flex-wrap:nowrap">
+<nav class="rail" aria-label="Rel"><span class="lg"></span>
+<a class="rt on"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg></span><small>Beranda</small></a><a class="rt"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><small>Presensi</small></a><a class="rt"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span><small>Pengajuan</small></a><a class="rt"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><small>Profil</small></a>
+<span class="sp"></span><a class="rt"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></span><small>Modul</small></a></nav>
+<nav class="side" aria-label="Sidebar"><div class="br"><span class="lg"></span><b>HCIS</b></div>
+<a class="it on"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg></span><span class="lb">Beranda</span></a><a class="it"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="lb">Presensi</span></a><a class="it"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span><span class="lb">Pengajuan</span></a><a class="it"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="lb">Profil</span></a>
+<p class="g">Modul</p><a class="it"><span class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></span><span class="lb">Semua modul</span></a><span class="sp"></span>
+<div class="me"><span class="av">RM</span><span><b>Rahmat</b><small>Developer</small></span></div></nav></div></body></html>

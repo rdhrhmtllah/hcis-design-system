@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inputs &amp; date picker · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>.col { width: 340px; display: grid; gap: 16px; align-content: start; } .field.is-error .field__help { color: var(--ev-no-ink); }</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Inputs</span><h1 class="ev-title-l">Fields say what to fill; errors say how to fix</h1>
+<p class="ev-body">52px fields, r-lg, 1.5px purple edge. Focus shows a purple border plus a 3px soft ring. Optional is marked, required is the default.</p></header>
+<div class="pv-row" style="gap:16px">
+  <section class="pv-panel"><span class="ev-label">Fields</span><div class="col" id="f"></div></section>
+  <section class="pv-panel"><span class="ev-label">DateRangePicker</span><div style="width:340px" id="cal"></div>
+    <p class="pv-note">Range fills purple-200; ends are 3D purple discs. Weekend numbers use the rose ink. Past days are disabled.</p></section>
+  <section class="pv-panel"><span class="ev-label">Option list (type sheet)</span><div class="optlist" style="width:340px;margin:0" id="o"></div></section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+var I = EV.icon;
+document.getElementById('f').innerHTML =
+  '<div class="field"><span class="field__label">Jenis cuti</span><button class="select"><span class="tile" style="width:32px;height:32px">' + I('calendar-days', 16, 2.2) + '</span><span class="select__value"><b style="display:block">Cuti tahunan</b><span class="ev-caption">Sisa 8 hari</span></span>' + I('chevron-down', 18, 2.4) + '</button></div>' +
+  '<label class="field"><span class="field__label">Alasan <em>(opsional)</em></span><textarea class="input" placeholder="Contoh: acara keluarga"></textarea></label>' +
+  '<label class="field"><span class="field__label">Nomor telepon darurat</span><input class="input" value="0812 3456 7890" style="box-shadow:0 0 0 3px var(--ev-purple-100);border-color:var(--ev-purple-600)"><span class="field__help">Focus state</span></label>' +
+  '<div class="field is-error"><span class="field__label">Tanggal cuti</span><button class="select"><span class="select__value">12–20 November</span>' + I('calendar', 18, 2.2) + '</button>' +
+  '<span class="field__help">Sisa cuti kamu 8 hari. Pilih paling banyak 8 hari kerja.</span></div>' +
+  EV.message('wait', 'Melebihi saldo', 'Kurangi 1 hari atau pilih Cuti tanpa gaji.', 'alert');
+document.getElementById('cal').innerHTML = EV.calendar({ year: 2026, month: 10, start: 12, end: 14, today: 6, minDay: 6 });
+var T = [['calendar-days', 'Cuti tahunan', 'Sisa 8 hari', 1], ['heart', 'Cuti sakit', 'Lampirkan surat dokter', 0], ['clock', 'Izin setengah hari', 'Pagi atau siang', 0]];
+document.getElementById('o').innerHTML = T.map(function (t) { return '<button class="opt' + (t[3] ? ' is-active' : '') + '"><span class="tile">' + I(t[0], 18, 2.2) + '</span><span class="opt__body"><b>' + t[1] + '</b><small>' + t[2] + '</small></span><span class="radio"></span></button>'; }).join('');
+</script>
+</body></html>

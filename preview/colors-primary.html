@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colors — brand, ink, surfaces · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="_card.css">
+<style>
+  #purple .pv-swatch { width: 120px; }
+  #purple .pv-swatch i { box-shadow: inset 0 -1px 0 rgba(26,21,53,.08); }
+  #gold .pv-swatch i { height: 88px; }
+  #ink .pv-swatch i { box-shadow: inset 0 0 0 1px var(--ev-purple-100); }
+  .gold-demo { height: 34px; padding: 0 14px; border-radius: var(--ev-r-full); background: var(--ev-gold); color: var(--ev-gold-ink); box-shadow: 0 2px 0 var(--ev-gold-edge); display: inline-flex; align-items: center; font: 700 var(--ev-fs-chip)/1 var(--font-body); }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Color · brand</span><h1 class="ev-title-l">Purple is structure, gold is a spark</h1>
+<p class="ev-body">Purple ramp builds headers, actions and icons. Gold appears only as small fills with dark-gold text. Text is ink on white or lilac page.</p></header>
+
+<div class="pv-grid">
+  <section class="pv-panel"><span class="ev-label">Purple ramp</span><div class="pv-row" id="purple"></div></section>
+  <section class="pv-panel"><span class="ev-label">Gold accent</span><div class="pv-row" id="gold"></div>
+    <div class="pv-row" style="margin-top:16px;align-items:center">
+      <span class="gold-demo">Gold fill + gold-ink text</span>
+      <span class="pv-note" style="margin:0">Never gold text on white — contrast 1.6:1.</span>
+    </div></section>
+  <section class="pv-panel"><span class="ev-label">Ink &amp; surfaces</span><div class="pv-row" id="ink"></div>
+    <p class="pv-note"><code>ev-ink-3</code> is for decoration and disabled states only, never readable text.</p></section>
+  <section class="pv-panel" style="padding:0;overflow:hidden">
+    <div style="background:var(--ev-header-gradient);color:#fff;padding:20px 20px 52px"><span class="ev-label" style="color:rgba(255,255,255,.72)">--ev-header-gradient</span><div class="ev-display-l">Cuti Saya</div></div>
+    <div style="margin:-32px 20px 20px;background:var(--ev-white);border-radius:var(--ev-r-3xl);box-shadow:var(--ev-sh-card);padding:16px 18px;display:flex;align-items:baseline;gap:8px">
+      <span class="ev-display-xl" style="color:var(--ev-purple-800)">5</span><span class="ev-title-m">dari 12 hari</span></div>
+  </section>
+</div>
+<script>
+var S = function (host, list) { document.getElementById(host).innerHTML = list.map(function (t) {
+  var v = getComputedStyle(document.documentElement).getPropertyValue('--' + t).trim();
+  return '<div class="pv-swatch"><i style="background:var(--' + t + ')"></i><div><b>' + t + '</b><code>' + v + '</code></div></div>'; }).join(''); };
+S('purple', ['ev-purple-950','ev-purple-900','ev-purple-800','ev-purple-700','ev-purple-600','ev-purple-500','ev-purple-accent','ev-purple-400','ev-purple-300','ev-purple-200','ev-purple-150','ev-purple-100','ev-purple-50','ev-purple-edge','ev-dash','ev-track']);
+S('gold', ['ev-gold','ev-gold-edge','ev-gold-ink']);
+S('ink', ['ev-ink','ev-ink-2','ev-ink-3','ev-bg','ev-white','ev-field-bg','ev-tint']);
+</script>
+</body></html>

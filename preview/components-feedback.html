@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feedback · Evo HCIS Mobile</title>
+<link rel="stylesheet" href="../colors_and_type.css"><link rel="stylesheet" href="../ui_kits/app/kit.css"><link rel="stylesheet" href="_card.css">
+<style>
+  .col { width: 340px; display: grid; gap: 12px; align-content: start; }
+  .toast { position: relative; left: auto; right: auto; bottom: auto; animation: none; }
+  .toast__bar { animation: none; width: 55%; }
+  .full { position: relative; width: 300px; height: 420px; border-radius: var(--ev-r-3xl); overflow: hidden; }
+  .full .fullscreen { animation: none; }
+</style>
+</head>
+<body class="ev-root">
+<header class="pv-head"><span class="ev-label">Components · Feedback</span><h1 class="ev-title-l">Say what happened and what to do next</h1>
+<p class="ev-body">Inline messages for context, dark toasts for results (with a gold timer bar), empty and loading states, and full-screen moments for sending and success.</p></header>
+<div class="pv-row" style="gap:16px">
+  <section class="pv-panel"><span class="ev-label">InlineMessage</span><div class="col" id="m"></div></section>
+  <section class="pv-panel"><span class="ev-label">Toast</span><div class="col" id="t"></div>
+    <span class="ev-label" style="display:block;margin:20px 0 12px">EmptyState · Skeleton</span><div class="col" id="e"></div></section>
+  <section class="pv-panel"><span class="ev-label">Full-screen: sending · success</span><div class="pv-row" id="fs"></div></section>
+</div>
+<script src="../build/icons.js"></script><script src="../ui_kits/app/components.js"></script>
+<script>
+var I = EV.icon;
+document.getElementById('m').innerHTML = EV.message('info', 'Cuti bersama 24 Desember', 'Tidak memotong saldo cuti tahunan kamu.', 'info') +
+  EV.message('wait', 'Menunggu atasan sejak 3 hari', 'Kamu bisa kirim pengingat sekali sehari.', 'clock') +
+  EV.message('no', 'Ditolak oleh Rina Susanti', 'Alasan: tim sedang rilis. Coba ajukan tanggal lain.', 'alert-circle') +
+  EV.message('ok', 'Saldo dikembalikan', '2 hari kembali ke cuti tahunan kamu.', 'check');
+document.getElementById('t').innerHTML = EV.toast({ tone: 'ok', title: 'Pengajuan terkirim', sub: 'Atasan kamu sudah diberi tahu.' }) +
+  EV.toast({ tone: 'no', title: 'Tidak ada koneksi', sub: 'Data belum diperbarui.', action: 'Coba lagi' }) +
+  EV.toast({ tone: 'wait', title: 'Pengingat terkirim ke atasan', action: 'Urungkan' });
+document.getElementById('e').innerHTML = EV.empty('calendar-check', 'Belum ada pengajuan', 'Pengajuan cuti kamu akan muncul di sini.') +
+  '<div class="card" style="display:flex;gap:12px;align-items:center" aria-busy="true"><span class="skel" style="width:40px;height:40px;border-radius:var(--ev-r-md)"></span><div style="flex:1;display:grid;gap:8px"><span class="skel" style="height:12px;width:60%"></span><span class="skel" style="height:10px;width:85%"></span></div></div>';
+document.getElementById('fs').innerHTML =
+  '<div class="full"><div class="fullscreen"><div class="route"><span class="route__node is-on">' + I('id-card', 22, 2.2) + '</span><span class="route__line"></span><span class="route__node">' + I('user-check', 22, 2.2) + '</span><span class="route__line" style="opacity:.5"></span><span class="route__node">' + I('document', 22, 2.2) + '</span></div>' +
+  '<div class="ev-title-l">Mengirim ke atasan…</div><p class="ev-body-sm" style="color:rgba(255,255,255,.8);margin:6px 0 0">Jangan tutup aplikasi dulu.</p></div></div>' +
+  '<div class="full"><div class="fullscreen"><div class="success-disc" style="margin-bottom:28px">' + I('check', 40, 3.4) + '</div><div class="ev-display-l">Terkirim!</div><p class="ev-body-sm" style="color:rgba(255,255,255,.8);margin:6px 0 0">Rina Susanti akan meninjau pengajuan kamu.</p></div></div>';
+</script>
+</body></html>
