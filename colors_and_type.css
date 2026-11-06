@@ -1,0 +1,241 @@
+/* =====================================================================
+   Evo HCIS Mobile — colors_and_type.css
+   Single runtime entry for the design system. Primary evidence: the
+   Beranda page (source/beranda/Main.dc.html). Older values from
+   hcis-design-system/assets/tokens.css are kept where Beranda agrees.
+   Fonts: Bricolage Grotesque (display) + Inter (body). Latin subsets are
+   shipped locally in fonts/ (extracted from the Cuti Saya source, OFL —
+   see fonts/LICENSE.txt). Google Fonts stays as fallback for other ranges.
+   ===================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* Local latin subsets (variable). Declared after the import so they win
+   for the latin range; other ranges fall back to Google Fonts. */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 700 800;
+  font-display: swap;
+  src: url("fonts/BricolageGrotesque-Latin-Variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/Inter-Latin-Variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* ---- font families ---- */
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ---- brand purple (structure) ---- */
+  --ev-purple-950: #241269;
+  --ev-purple-900: #2d1778;
+  --ev-purple-800: #3b22a0;
+  --ev-purple-700: #4b2db5;
+  --ev-purple-600: #5b3bd8;
+  --ev-purple-500: #6d4deb;
+  --ev-purple-accent: #6d4ae0;
+  --ev-purple-400: #8b6cf0;
+  --ev-purple-300: #a78bfa;
+  --ev-purple-200: #e8e2fc;
+  --ev-purple-150: #d9d0f5;
+  --ev-purple-100: #e4ddfb;
+  --ev-purple-50: #f1eefc;
+  --ev-purple-edge: #c9bfef;
+  --ev-dash: #b7a7ee;
+  --ev-track: #dcd5f3;
+
+  /* ---- gold (small accent fill only; text on it = gold-ink) ---- */
+  --ev-gold: #f7c948;
+  --ev-gold-edge: #d49a12;
+  --ev-gold-ink: #3a2a00;
+
+  /* ---- ink + surfaces ---- */
+  --ev-ink: #1a1535;
+  --ev-ink-2: #5a5578;
+  --ev-ink-3: #8a84a8; /* decoration / disabled only, never readable text */
+  --ev-bg: #f4f2fc;
+  --ev-white: #ffffff;
+  --ev-field-bg: #fbfaff;
+  --ev-tint: #f7f5fe;
+
+  /* ---- status: ok = Disetujui, wait = Menunggu / Di HR, no = Ditolak, cx = Dibatalkan ---- */
+  --ev-ok-bg: #ddf5e4;
+  --ev-ok-edge: #a9ddba;
+  --ev-ok-ink: #14532d;
+  --ev-ok-dot: #2e9e5b;
+  --ev-wait-bg: #ffe9d6;
+  --ev-wait-edge: #f8cba6;
+  --ev-wait-ink: #7a3200;
+  --ev-wait-dot: #f57c2a;
+  --ev-no-bg: #ffe0ea;
+  --ev-no-edge: #f2b9cb;
+  --ev-no-ink: #9b1c48;
+  --ev-no-dot: #cd3e6a;
+  --ev-no-deep: #8f1840;
+  --ev-no-soft: #ff7a9e;
+  --ev-no-ring: #ffc9d9;
+  --ev-cx-bg: #eceaf3;
+  --ev-cx-dot: #9a94b8;
+  --ev-info-bg: #d6e8ff;
+  --ev-info-edge: #afcbf2;
+  --ev-info-ink: #1b4a96;
+
+  /* ---- illustration path accents (approval route art only) ---- */
+  --ev-path-orange: #ff9f55;
+  --ev-path-rose: #ff6b94;
+  --ev-path-rose-soft: #ff8fae;
+
+  /* ---- semantic aliases ---- */
+  --ev-surface: var(--ev-white);
+  --ev-surface-page: var(--ev-bg);
+  --ev-text: var(--ev-ink);
+  --ev-text-muted: var(--ev-ink-2);
+  --ev-text-on-brand: var(--ev-white);
+  --ev-action: var(--ev-purple-600);
+  --ev-action-edge: var(--ev-purple-800);
+  --ev-focus: var(--ev-purple-400);
+  --ev-focus-width: 3px;
+  --ev-press-y: 2px; /* primary button travels 2px on press (Beranda) */
+  --ev-header-gradient: linear-gradient(160deg, var(--ev-purple-900) 0%, var(--ev-purple-700) 100%);
+  --ev-fab-gradient: linear-gradient(160deg, var(--ev-purple-400) 0%, var(--ev-purple-700) 100%);
+  --ev-slide-campaign: linear-gradient(135deg, var(--ev-purple-600) 0%, var(--ev-purple-900) 100%);
+  --ev-slide-wellness: linear-gradient(135deg, var(--ev-no-deep) 0%, var(--ev-purple-900) 100%);
+  --ev-slide-learning: linear-gradient(135deg, var(--ev-purple-800) 0%, var(--ev-purple-950) 100%);
+  --ev-sh-feed: 0 -6px 24px rgba(75,32,153,0.10);
+  --ev-hero-h: 240px;
+  --ev-r-hero: 30px;
+
+  /* ---- spacing ---- */
+  --ev-sp-2: 2px;
+  --ev-sp-4: 4px;
+  --ev-sp-6: 6px;
+  --ev-sp-8: 8px;
+  --ev-sp-10: 10px;
+  --ev-sp-12: 12px;
+  --ev-sp-14: 14px;
+  --ev-sp-16: 16px;
+  --ev-sp-20: 20px;
+  --ev-sp-24: 24px;
+  --ev-sp-32: 32px;
+  --ev-sp-48: 48px;
+
+  /* ---- radius ---- */
+  --ev-r-hair: 2px;
+  --ev-r-xs: 4px;
+  --ev-r-sm: 8px;
+  --ev-r-md: 12px;
+  --ev-r-lg: 16px;
+  --ev-r-xl: 20px;
+  --ev-r-2xl: 24px;
+  --ev-r-3xl: 28px;
+  --ev-r-full: 999px;
+
+  /* ---- shadow (all tinted purple, never neutral grey) ---- */
+  --ev-sh-card: 0 12px 26px -16px rgba(45,23,120,0.4), 0 2px 5px rgba(45,23,120,0.06);
+  --ev-sh-row: 0 8px 16px -12px rgba(45,23,120,0.35);
+  --ev-sh-btn: 0 4px 0 #3b22a0, inset 0 1px 0 rgba(255,255,255,0.28);
+  --ev-sh-pop: 0 12px 20px -10px rgba(45,23,120,0.5);
+  --ev-sh-sheet: 0 -18px 40px -12px rgba(26,21,53,0.45);
+
+  /* ---- breakpoints (tablet/desktop are proposals) ---- */
+  --ev-bp-tablet: 600px;
+  --ev-bp-desktop: 1024px;
+  --ev-bp-wide: 1440px;
+
+  /* ---- sizes ---- */
+  --ev-touch: 44px;
+  --ev-w-phone: 390px;
+  --ev-w-rail: 72px;
+  --ev-w-sidebar: 248px;
+  --ev-w-content: 1120px;
+  --ev-w-form: 560px;
+  --ev-w-dialog-s: 400px;
+  --ev-w-dialog-m: 560px;
+  --ev-w-panel: 420px;
+
+  /* ---- z-index ---- */
+  --ev-z-sticky: 10;
+  --ev-z-nav: 20;
+  --ev-z-popover: 40;
+  --ev-z-sheet: 50;
+  --ev-z-detail: 51;
+  --ev-z-toast: 70;
+  --ev-z-hint: 80;
+
+  /* ---- motion ---- */
+  --ev-ease-enter: cubic-bezier(.2,.9,.25,1);
+  --ev-ease-spring: cubic-bezier(.3,1.5,.5,1);
+  --ev-ease-exit: cubic-bezier(.5,0,.9,.4);
+  --ev-ease-standard: cubic-bezier(.45,0,.25,1);
+  --ev-t-fast: 0.2s;
+  --ev-t-exit: 0.25s;
+  --ev-t-base: 0.3s;
+  --ev-t-mid: 0.4s;
+  --ev-t-enter: 0.45s;
+  --ev-t-slow: 0.5s;
+  --ev-t-page: 0.6s;
+
+  /* ---- type scale (the only sizes allowed) ---- */
+  --ev-fs-display-xl: 56px; --ev-lh-display-xl: 0.95;
+  --ev-fs-display-l: 32px;  --ev-lh-display-l: 1.05;
+  --ev-fs-title-xl: 26px;   --ev-lh-title-xl: 1.1;   /* success headline */
+  --ev-fs-title-l: 22px;    --ev-lh-title-l: 1.15;
+  --ev-fs-section-l: 20px;  --ev-lh-section-l: 1.2;  /* Kabar terbaru */
+  --ev-fs-title-m: 18px;    --ev-lh-title-m: 1.2;
+  --ev-fs-heading-s: 16px;  --ev-lh-heading-s: 1.25;
+  --ev-fs-title-s: 15px;    --ev-lh-title-s: 1.3;
+  --ev-fs-body: 14px;       --ev-lh-body: 1.45;
+  --ev-fs-body-strong: 14px; --ev-lh-body-strong: 1.3;
+  --ev-fs-body-sm: 13px;    --ev-lh-body-sm: 1.45;
+  --ev-fs-row-sub: 12.5px;  --ev-lh-row-sub: 1.4;    /* row subtext */
+  --ev-fs-caption: 12px;    --ev-lh-caption: 1.35;
+  --ev-fs-chip: 12px;       --ev-lh-chip: 16px;
+  --ev-fs-label: 12px;      --ev-lh-label: 16px;     /* Beranda: 12px uppercase */
+}
+
+/* ---------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------- */
+.ev-root, .ev-root * { box-sizing: border-box; }
+.ev-root {
+  font-family: var(--font-body);
+  font-size: var(--ev-fs-body);
+  line-height: var(--ev-lh-body);
+  font-weight: 500;
+  color: var(--ev-ink);
+  background: var(--ev-bg);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+.ev-root :focus-visible { outline: var(--ev-focus-width) solid var(--ev-focus); outline-offset: 2px; border-radius: var(--ev-r-sm); }
+
+/* ---------------------------------------------------------------------
+   Type styles
+   --------------------------------------------------------------------- */
+.ev-display-xl { font: 800 var(--ev-fs-display-xl)/var(--ev-lh-display-xl) var(--font-display); letter-spacing: -1.5px; }
+.ev-display-l  { font: 800 var(--ev-fs-display-l)/var(--ev-lh-display-l) var(--font-display); letter-spacing: -0.6px; }
+.ev-title-xl   { font: 800 var(--ev-fs-title-xl)/var(--ev-lh-title-xl) var(--font-display); letter-spacing: -0.4px; }
+.ev-section-l  { font: 700 var(--ev-fs-section-l)/var(--ev-lh-section-l) var(--font-display); letter-spacing: -0.3px; }
+.ev-title-l    { font: 700 var(--ev-fs-title-l)/var(--ev-lh-title-l) var(--font-display); letter-spacing: -0.3px; }
+.ev-title-m    { font: 700 var(--ev-fs-title-m)/var(--ev-lh-title-m) var(--font-display); letter-spacing: -0.2px; }
+.ev-heading-s  { font: 700 var(--ev-fs-heading-s)/var(--ev-lh-heading-s) var(--font-body); }
+.ev-title-s    { font: 700 var(--ev-fs-title-s)/var(--ev-lh-title-s) var(--font-body); }
+.ev-body       { font: 500 var(--ev-fs-body)/var(--ev-lh-body) var(--font-body); }
+.ev-body-strong{ font: 600 var(--ev-fs-body-strong)/var(--ev-lh-body-strong) var(--font-body); }
+.ev-body-sm    { font: 500 var(--ev-fs-body-sm)/var(--ev-lh-body-sm) var(--font-body); }
+.ev-row-sub    { font: 500 var(--ev-fs-row-sub)/var(--ev-lh-row-sub) var(--font-body); color: var(--ev-ink-2); }
+.ev-caption    { font: 500 var(--ev-fs-caption)/var(--ev-lh-caption) var(--font-body); color: var(--ev-ink-2); }
+.ev-chip-text  { font: 600 var(--ev-fs-chip)/var(--ev-lh-chip) var(--font-body); }
+.ev-label      { font: 600 var(--ev-fs-label)/var(--ev-lh-label) var(--font-body); text-transform: uppercase; letter-spacing: .06em; color: var(--ev-ink-2); }
+.ev-num        { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ev-t-fast: 0.01s; --ev-t-exit: 0.01s; --ev-t-base: 0.01s; --ev-t-mid: 0.01s; --ev-t-enter: 0.01s; --ev-t-slow: 0.01s; --ev-t-page: 0.01s; }
+}

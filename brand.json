@@ -1,0 +1,7 @@
+{
+  "logo": {
+    "primary": "assets/logo.png",
+    "alternates": ["assets/beranda/evo-logo-mark.webp"],
+    "notes": "Evo Group wordmark. Use on white or bg (#f4f2fc) surfaces; on purple-900 headers use the white mark inside a glass tile. Never recolor, stretch, or place on gold."
+  }
+}
